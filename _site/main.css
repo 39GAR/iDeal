@@ -1,0 +1,227 @@
+/* HEADER */
+:root{
+  --navH: 44px;
+  --maxW: 1180px;
+  --pad: 16px;
+
+  --bg: rgba(255,255,255,0.92);
+  --text: rgba(0,0,0,0.88);
+  --muted: rgba(0,0,0,0.72);
+  --hairline: rgba(0,0,0,0.08);
+}
+
+/* stops mobile weird scaling */
+html{
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body{
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+               "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.ideal-nav{
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: var(--bg);
+  backdrop-filter: saturate(180%) blur(16px);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.ideal-nav__inner{
+  height: var(--navH);
+  max-width: var(--maxW);
+  margin: 0 auto;
+  padding: 0 var(--pad);
+
+  display: grid;
+  grid-template-columns: 44px 1fr 44px; /* logo | menu | search */
+  align-items: center;
+  gap: 10px;
+}
+
+/* Logo */
+.ideal-nav__logo{
+  width: 30px;
+  height: var(--navH);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+.ideal-nav__logo img{
+  width: 100px;          /* Apple-ish size */
+  height: 30px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Center menu */
+.ideal-nav__menu{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 44px;            /* close to Apple spacing */
+  min-width: 0;
+}
+
+.ideal-nav__link{
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1;
+  padding: 0 2px;
+  white-space: nowrap;
+}
+.ideal-nav__link:hover{
+  color: var(--text);
+}
+
+/* Search button */
+.ideal-nav__iconBtn{
+  width: 44px;
+  height: var(--navH);
+  border: 0;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.ideal-nav__iconBtn svg{
+  width: 16px;
+  height: 16px;
+  fill: rgba(0,0,0,0.78);
+}
+
+/* Mobile toggle (hidden desktop) */
+.ideal-nav__toggle{
+  display: none;
+  width: 44px;
+  height: var(--navH);
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+.ideal-nav__toggle span{
+  width: 18px;
+  height: 2px;
+  background: rgba(0,0,0,0.78);
+  display: block;
+  border-radius: 2px;
+}
+.ideal-nav__toggle span + span{ margin-top: 5px; }
+
+/* Mobile drawer */
+.ideal-nav__drawer{
+  max-width: var(--maxW);
+  margin: 0 auto;
+  padding: 10px var(--pad) 16px;
+  border-top: 1px solid var(--hairline);
+}
+
+.ideal-nav__drawerLink{
+  display: block;
+  padding: 12px 10px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: rgba(0,0,0,0.86);
+  font-size: 16px; /* important: not tiny on phones */
+}
+.ideal-nav__drawerLink:active{
+  background: rgba(0,0,0,0.06);
+}
+
+.ideal-nav__drawerSearch{
+  margin-top: 8px;
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.10);
+  background: rgba(0,0,0,0.04);
+  color: rgba(0,0,0,0.86);
+  font-size: 16px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Responsive: collapse like Apple */
+@media (max-width: 900px){
+  .ideal-nav__inner{
+    grid-template-columns: 44px 1fr 44px; /* keep same */
+  }
+
+  .ideal-nav__menu{ display: none; }
+  .ideal-nav__iconBtn{ display: none; } /* Apple collapses icons; we’ll show search inside drawer */
+  .ideal-nav__toggle{ display: inline-flex; }
+}
+
+/* ===== Search Overlay ===== */
+/* HARD RULE: if hidden attribute exists, do not display */
+.ideal-search[hidden]{
+  display: none !important;
+}
+
+.ideal-search{
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+}
+
+.ideal-search__backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+}
+
+.ideal-search__panel{
+  position: relative;
+  margin: 10vh auto 0;
+  width: min(720px, 92vw);
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  padding: 14px 14px;
+  transform: translateY(-6px);
+  opacity: 0;
+  transition: transform .16s ease, opacity .16s ease;
+}
+
+/* When opened, we add a class from JS */
+.ideal-search.is-open .ideal-search__panel{
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.ideal-search__top{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ideal-search__input{
+  width: 100%;
+  border: 0;
+  outline: none;
+  font-size: 18px;
+  font-family: inherit;
+  padding: 12px 10px;
+}
+
+.ideal-search__close{
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.10);
+  background: rgba(0,0,0,0.04);
+  cursor: pointer;
+}

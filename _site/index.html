@@ -1,0 +1,84 @@
+<header class="ideal-nav" role="banner">
+  <div class="ideal-nav__inner">
+    <!-- Left: Logo -->
+    <a class="ideal-nav__logo" href="/" aria-label="iDeal Home">
+      <img
+        src="https://res.cloudinary.com/dodevsdjg/image/upload/v1767675363/ideal-logo-transparent_tld1gj.png"
+        alt="iDeal"
+        loading="eager"
+        decoding="async"
+      />
+    </a>
+
+    <!-- Center: Tabs -->
+    <nav class="ideal-nav__menu" aria-label="Primary">
+      <a class="ideal-nav__link" href="/mac">Mac</a>
+      <a class="ideal-nav__link" href="/ipad">iPad</a>
+      <a class="ideal-nav__link" href="/iphone">iPhone</a>
+      <a class="ideal-nav__link" href="/watch">Watch</a>
+      <a class="ideal-nav__link" href="/support">Contacts</a>
+    </nav>
+
+    <!-- Right: Search -->
+    <button class="ideal-nav__iconBtn" type="button" aria-label="Search">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M10.5 3a7.5 7.5 0 105.02 13.08l3.2 3.2a1 1 0 001.41-1.41l-3.2-3.2A7.5 7.5 0 0010.5 3zm0 2a5.5 5.5 0 110 11 5.5 5.5 0 010-11z"/>
+      </svg>
+    </button>
+
+    <!-- Mobile: Menu toggle -->
+    <button class="ideal-nav__toggle" type="button" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div class="ideal-nav__drawer" hidden>
+    <a class="ideal-nav__drawerLink" href="/mac">Mac</a>
+    <a class="ideal-nav__drawerLink" href="/ipad">iPad</a>
+    <a class="ideal-nav__drawerLink" href="/iphone">iPhone</a>
+    <a class="ideal-nav__drawerLink" href="/watch">Watch</a>
+    <a class="ideal-nav__drawerLink" href="/support">Contacts</a>
+
+    <button class="ideal-nav__drawerSearch" type="button" aria-label="Search">
+      <span aria-hidden="true">⌕</span>
+      <span>Search</span>
+    </button>
+  </div>
+
+</header>
+
+<!-- Search Overlay (hidden by default) -->
+<div class="ideal-search" hidden aria-hidden="true">
+  <div class="ideal-search__backdrop" data-close="search"></div>
+
+  <div class="ideal-search__panel" role="dialog" aria-modal="true" aria-label="Search">
+    <div class="ideal-search__top">
+      <input
+        type="search"
+        class="ideal-search__input"
+        placeholder="Search iDeal..."
+        aria-label="Search"
+      />
+
+      <button class="ideal-search__close" type="button" aria-label="Close search" data-close="search">
+        ✕
+      </button>
+    </div>
+  </div>
+</div>
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>iDeal</title>
+  </head>
+  <body>
+
+  </body>
+</html>
+
+
+<link rel="stylesheet" href="/main.css">
+<script src="/script.js"></script>
