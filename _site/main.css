@@ -636,3 +636,70 @@ body{
   .ideal-footer__title::after{ content:"⌄"; opacity:.7; }
   .ideal-footer__section[open] .ideal-footer__title::after{ content:"⌃"; }
 }
+
+/* ===== FIX: Mobile hamburger icon ===== */
+.ideal-nav__toggle{
+  display: none;                 /* hidden on desktop */
+  width: 44px;
+  height: var(--navH);
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+
+  /* important: prevents stretching */
+  flex: 0 0 auto;
+}
+
+.ideal-nav__toggle span{
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);  /* base */
+  width: 18px;                       /* tight */
+  height: 2px;
+  background: rgba(0,0,0,0.78);
+  border-radius: 2px;
+  position: absolute;
+  display: block;
+}
+
+/* place bars */
+.ideal-nav__toggle span:nth-child(1){ transform: translate(-50%, calc(-50% - 6px)); }
+.ideal-nav__toggle span:nth-child(2){ transform: translate(-50%, -50%); }
+.ideal-nav__toggle span:nth-child(3){ transform: translate(-50%, calc(-50% + 6px)); }
+
+/* animate to X */
+.ideal-nav__toggle[aria-expanded="true"] span:nth-child(1){
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.ideal-nav__toggle[aria-expanded="true"] span:nth-child(2){
+  opacity: 0;
+}
+.ideal-nav__toggle[aria-expanded="true"] span:nth-child(3){
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+@media (max-width: 900px){
+  .ideal-nav__toggle{ display: inline-flex; }
+}
+
+/* ===== FIX: Logo sizing & alignment ===== */
+.ideal-nav__logo{
+  height: var(--navH);
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.ideal-nav__logo img{
+  height: 24px;          /* adjust: 22–26px is sweet */
+  width: auto;
+  max-width: 120px;
+  object-fit: contain;
+  display: block;
+}
+
+.ideal-nav__inner{
+  grid-template-columns: 150px 1fr 96px; /* more room for wide logo */
+}
