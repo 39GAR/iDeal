@@ -703,3 +703,190 @@ body{
 .ideal-nav__inner{
   grid-template-columns: 150px 1fr 96px; /* more room for wide logo */
 }
+
+/* HERO SECTION */
+.hero{
+  background: #FAFAFC;
+}
+
+.hero__inner{
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 72px 16px 64px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 28px;
+  align-items: center;
+}
+
+.hero__eyebrow{
+  margin: 0 0 12px;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: none;
+  color: rgba(0,0,0,0.55);
+}
+
+.hero__title{
+  margin: 0 0 14px;
+  font-size: clamp(34px, 5vw, 56px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: rgba(0,0,0,0.92);
+  font-weight: 650;
+}
+
+.hero__sub{
+  margin: 0 0 22px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(0,0,0,0.62);
+  max-width: 52ch;
+}
+
+.hero__actions{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Buttons (Apple-ish) */
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  border: 1px solid transparent;
+  transition: transform .12s ease, background .12s ease, border-color .12s ease;
+}
+
+.btn:active{ transform: scale(0.98); }
+
+.btn--primary{
+  background: rgba(0,0,0,0.92);
+  color: #fff;
+}
+.btn--primary:hover{
+  background: rgba(0,0,0,0.82);
+}
+
+.btn--ghost{
+  background: rgba(0,0,0,0.04);
+  border-color: rgba(0,0,0,0.10);
+  color: rgba(0,0,0,0.86);
+}
+.btn--ghost:hover{
+  background: rgba(0,0,0,0.06);
+}
+
+/* Media side */
+.hero__media{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero__card{
+  width: min(440px, 100%);
+  aspect-ratio: 4 / 3;
+  border-radius: 26px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.02));
+  border: 1px solid rgba(0,0,0,0.10);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+}
+
+.hero__shine{
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(255,255,255,0) 60%);
+  transform: rotate(12deg);
+  opacity: 0.7;
+}
+
+.hero__cardText{
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+}
+
+.hero__cardTitle{
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(0,0,0,0.88);
+  margin-bottom: 4px;
+}
+
+.hero__cardMeta{
+  font-size: 13px;
+  color: rgba(0,0,0,0.55);
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .hero__inner{
+    grid-template-columns: 1fr;
+    padding: 52px 16px 52px;
+  }
+  .hero__media{
+    justify-content: flex-start;
+  }
+}
+.hero{ padding-top: 10px; }
+
+/* Hero image card */
+.hero__card--image{
+  background: #fff;               /* clean like your screenshot */
+  overflow: hidden;
+}
+
+.hero__img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;              /* fills the card, crops edges only */
+  object-position: center;        /* keep centered */
+  transform: none !important;     /* kill any tilt */
+  filter: none !important;        /* kill any blur */
+  opacity: 1 !important;
+}
+
+/* If you still have .hero__shine in CSS, make sure it doesn't affect the image */
+.hero__shine{ display: none; }
+
+.hero__img{
+  object-fit: contain;
+  background: #fff;
+}
+
+.hero__cardText{
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  z-index: 2;
+}
+
+
+
+/* Only image, clipped by the wrapper (no frame) */
+.hero__card{
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: hidden;          /* clip image to rounded corners */
+  border-radius: 26px;       /* keep your wrapper shape */
+}
+
+/* Image fills the wrapper */
+.hero__img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;         /* fills, crops only by wrapper */
+  object-position: center;
+}
