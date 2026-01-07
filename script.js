@@ -98,3 +98,7 @@
     if (ideal) ideal.setOpen(false);
   });
 })();
+
+//Year update
+const yearEl = document.getElementById("idealYear");
+if (yearEl) yearEl.textContent = new Date().getFullYear();

@@ -1,5 +1,25 @@
-{% include header.html %}
-{{ content }}
-{% include footer.html %}
-<link rel="stylesheet" href="{{ '/main.css' | relative_url }}">
-<script src="{{ '/script.js' | relative_url }}"></script>
+---
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>{% if page.title %}{{ page.title }} — {% endif %}iDeal</title>
+
+  <link rel="stylesheet" href="{{ '/main.css' | relative_url }}">
+</head>
+<body>
+
+  {% include header.html %}
+
+  <main class="page">
+    {{ content }}
+  </main>
+
+  {% include footer.html %}
+
+  <script src="{{ '/script.js' | relative_url }}"></script>
+</body>
+</html>
