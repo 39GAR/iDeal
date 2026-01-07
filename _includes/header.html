@@ -19,7 +19,7 @@
       <a class="ideal-nav__link" href="{{ '/support' | relative_url }}">Contacts</a>
     </nav>
 
-    <!-- Right: Search -->
+    <!-- Right: Search + Toggle -->
     <div class="ideal-nav__right">
       <button class="ideal-nav__iconBtn" type="button" aria-label="Search">
         <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -28,12 +28,12 @@
       </button>
 
       <button class="ideal-nav__toggle" type="button" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span>
+        <span></span><span></span><span></span>
       </button>
     </div>
+  </div>
 
-
-  <!-- Mobile Drawer -->
+  <!-- Mobile Drawer (outside the grid!) -->
   <div class="ideal-nav__drawer" hidden>
     <a class="ideal-nav__drawerLink" href="{{ '/mac' | relative_url }}">Mac</a>
     <a class="ideal-nav__drawerLink" href="{{ '/ipad' | relative_url }}">iPad</a>
@@ -46,7 +46,6 @@
       <span>Search</span>
     </button>
   </div>
-
 </header>
 
 <!-- Search Overlay (hidden by default) -->
@@ -61,7 +60,6 @@
         placeholder="Search iDeal..."
         aria-label="Search"
       />
-
       <button class="ideal-search__close" type="button" aria-label="Close search" data-close="search">
         ✕
       </button>

@@ -31,7 +31,7 @@
       <a class="ideal-nav__link" href="/support">Contacts</a>
     </nav>
 
-    <!-- Right: Search -->
+    <!-- Right: Search + Toggle -->
     <div class="ideal-nav__right">
       <button class="ideal-nav__iconBtn" type="button" aria-label="Search">
         <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -40,12 +40,12 @@
       </button>
 
       <button class="ideal-nav__toggle" type="button" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span>
+        <span></span><span></span><span></span>
       </button>
     </div>
+  </div>
 
-
-  <!-- Mobile Drawer -->
+  <!-- Mobile Drawer (outside the grid!) -->
   <div class="ideal-nav__drawer" hidden>
     <a class="ideal-nav__drawerLink" href="/mac">Mac</a>
     <a class="ideal-nav__drawerLink" href="/ipad">iPad</a>
@@ -58,7 +58,6 @@
       <span>Search</span>
     </button>
   </div>
-
 </header>
 
 <!-- Search Overlay (hidden by default) -->
@@ -73,7 +72,6 @@
         placeholder="Search iDeal..."
         aria-label="Search"
       />
-
       <button class="ideal-search__close" type="button" aria-label="Close search" data-close="search">
         ✕
       </button>
@@ -106,38 +104,39 @@
     </div>
 
     <div class="ideal-footer__cols">
-      <div class="ideal-footer__col">
-        <h4 class="ideal-footer__title">Shop</h4>
+      <details class="ideal-footer__section">
+        <summary class="ideal-footer__title">Shop</summary>
         <a class="ideal-footer__link" href="/iphone">iPhone</a>
         <a class="ideal-footer__link" href="/mac">Mac</a>
         <a class="ideal-footer__link" href="/ipad">iPad</a>
         <a class="ideal-footer__link" href="/watch">Watch</a>
         <a class="ideal-footer__link" href="/airpods">AirPods</a>
-      </div>
+      </details>
 
-      <div class="ideal-footer__col">
-        <h4 class="ideal-footer__title">Services</h4>
+      <details class="ideal-footer__section">
+        <summary class="ideal-footer__title">Services</summary>
         <a class="ideal-footer__link" href="/repairs">Repairs</a>
         <a class="ideal-footer__link" href="/trade-in">Trade-in</a>
         <a class="ideal-footer__link" href="/delivery">Delivery</a>
         <a class="ideal-footer__link" href="/warranty">Warranty</a>
-      </div>
+      </details>
 
-      <div class="ideal-footer__col">
-        <h4 class="ideal-footer__title">Support</h4>
+      <details class="ideal-footer__section">
+        <summary class="ideal-footer__title">Support</summary>
         <a class="ideal-footer__link" href="/support">Help Center</a>
         <a class="ideal-footer__link" href="/contact">Contact</a>
         <a class="ideal-footer__link" href="/track">Track Order</a>
-      </div>
+      </details>
 
-      <div class="ideal-footer__col">
-        <h4 class="ideal-footer__title">Company</h4>
+      <details class="ideal-footer__section">
+        <summary class="ideal-footer__title">Company</summary>
         <a class="ideal-footer__link" href="/about">About iDeal</a>
         <a class="ideal-footer__link" href="/terms">Terms</a>
         <a class="ideal-footer__link" href="/privacy">Privacy Policy</a>
         <a class="ideal-footer__link" href="/credits">Credits</a>
-      </div>
+      </details>
     </div>
+
 
     <div class="ideal-footer__bottom">
       <div class="ideal-footer__copy">
