@@ -99,6 +99,22 @@
   });
 })();
 
+// ===== Scroll reveal (IntersectionObserver) =====
+const revealEls = document.querySelectorAll(".reveal");
+if (revealEls.length) {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        io.unobserve(entry.target); // animate once like Apple
+      }
+    });
+  }, { threshold: 0.15 });
+
+  revealEls.forEach((el) => io.observe(el));
+}
+
+
 //Year update
 const yearEl = document.getElementById("idealYear");
 if (yearEl) yearEl.textContent = new Date().getFullYear();

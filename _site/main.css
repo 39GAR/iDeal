@@ -890,3 +890,245 @@ body{
   object-fit: cover;         /* fills, crops only by wrapper */
   object-position: center;
 }
+
+/*HOME CARDS SECTION */
+.home-cards{
+  background: #FAFAFC;
+}
+
+.home-cards__inner{
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 72px 16px 96px;
+}
+
+.home-cards__title{
+  margin: 0 0 10px;
+  font-size: clamp(22px, 3.2vw, 32px);
+  letter-spacing: -0.02em;
+  color: rgba(0,0,0,0.9);
+  font-weight: 650;
+}
+
+.home-cards__sub{
+  margin: 0 0 26px;
+  max-width: 60ch;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(0,0,0,0.62);
+}
+
+.card-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+/* Square-ish Apple cards */
+.info-card{
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  min-height: 260px;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: #000;
+  transform: translateZ(0); /* smoother */
+}
+
+/* background image via CSS variable */
+.info-card::before{
+  content:"";
+  position: absolute;
+  inset: 0;
+  background-image: var(--bg);
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.02);
+  filter: none;
+}
+
+/* dark overlay for readability */
+.info-card::after{
+  content:"";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0.10) 55%, rgba(0,0,0,0.00));
+}
+
+/* content */
+.info-card__content{
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  z-index: 2;
+}
+
+.info-card__content h3{
+  margin: 0 0 6px;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+  color: rgba(255,255,255,0.94);
+}
+
+.info-card__content p{
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.78);
+  max-width: 42ch;
+}
+
+/* subtle hover like Apple (desktop only feel) */
+@media (hover:hover){
+  .info-card{
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+  .info-card:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 18px 50px rgba(0,0,0,0.12);
+  }
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .card-grid{ grid-template-columns: 1fr; }
+  .info-card{ min-height: 240px; }
+}
+
+/* ===== Scroll reveal (Apple-like) ===== */
+.reveal{
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .6s ease, transform .6s ease;
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .reveal{
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ===== Better card look (bigger text, not corner-stuck, more depth) ===== */
+
+.card-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+@media (max-width: 900px){
+  .card-grid{ grid-template-columns: 1fr; }
+}
+
+/* The card */
+.info-card{
+  position: relative;
+  border-radius: 26px;
+  overflow: hidden;
+  min-height: 300px;
+
+  border: 1px solid rgba(0,0,0,0.08);
+  background: #000;
+
+  /* depth */
+  box-shadow:
+    0 18px 60px rgba(0,0,0,0.10),
+    0 1px 0 rgba(255,255,255,0.45) inset;
+
+  transform: translateZ(0);
+}
+
+/* Background image layer */
+.info-card::before{
+  content:"";
+  position: absolute;
+  inset: 0;
+  background-image: var(--bg);
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.03);
+}
+
+/* Soft “glass” overlay + vignette (less flat) */
+.info-card::after{
+  content:"";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(120% 80% at 20% 10%, rgba(255,255,255,0.18), rgba(255,255,255,0) 55%),
+    linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.55));
+}
+
+/* Content layout: NOT absolute bottom corner */
+.info-card__content{
+  position: relative;
+  z-index: 2;
+  height: 100%;
+
+  padding: 26px;
+  display: grid;
+  align-content: center;      /* centers text vertically */
+  gap: 10px;
+  text-align: left;
+}
+
+/* Bigger, fun, bold (same font) */
+.info-card__content h3{
+  margin: 0;
+  font-size: clamp(22px, 2.2vw, 28px);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  color: rgba(255,255,255,0.96);
+
+  /* readability */
+  text-shadow: 0 10px 26px rgba(0,0,0,0.35);
+}
+
+/* Short message, still visible */
+.info-card__content p{
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.45;
+  color: rgba(255,255,255,0.84);
+  max-width: 36ch;
+  text-shadow: 0 10px 26px rgba(0,0,0,0.35);
+}
+
+/* Optional: small “pill” tag to add fun without changing font */
+.info-card__tag{
+  display: inline-flex;
+  width: fit-content;
+  padding: 7px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.92);
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.16);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Hover: more depth (desktop only) */
+@media (hover:hover){
+  .info-card{
+    transition: transform .20s ease, box-shadow .20s ease;
+  }
+  .info-card:hover{
+    transform: translateY(-4px);
+    box-shadow:
+      0 26px 80px rgba(0,0,0,0.16),
+      0 1px 0 rgba(255,255,255,0.45) inset;
+  }
+}
