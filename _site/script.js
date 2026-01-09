@@ -118,3 +118,5 @@ if (revealEls.length) {
 //Year update
 const yearEl = document.getElementById("idealYear");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+document.documentElement.classList.add('js');
