@@ -1135,3 +1135,47 @@ body{
       0 1px 0 rgba(255,255,255,0.45) inset;
   }
 }
+
+/* Force cards to stack one-by-one (even on desktop) */
+.card-grid{
+  display: grid;
+  grid-template-columns: 1fr !important;
+  gap: 18px;
+}
+
+/* Make the stacked layout look good on PC (not full width) */
+.home-cards__inner{
+  max-width: 900px;   /* tweak: 820–980 */
+}
+
+/* ===== Desktop enhancement for stacked cards ===== */
+@media (min-width: 901px){
+
+  /* Make the section wider but still centered */
+  .home-cards__inner{
+    max-width: 1040px;   /* try 980–1100 to taste */
+    margin: 0 auto;
+  }
+
+  /* Make each card bigger and more premium */
+  .info-card{
+    min-height: 380px;   /* was ~300 */
+    border-radius: 28px;
+  }
+
+  /* Give content more breathing room */
+  .info-card__content{
+    padding: 42px;
+    max-width: 640px;    /* text block doesn't stretch too wide */
+  }
+
+  /* Make text feel more "hero-like" */
+  .info-card__content h3{
+    font-size: clamp(28px, 3vw, 34px);
+  }
+
+  .info-card__content p{
+    font-size: 17px;
+    max-width: 46ch;
+  }
+}
