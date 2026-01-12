@@ -9,6 +9,14 @@
   <title>{% if page.title %}{{ page.title }} — {% endif %}iDeal</title>
 
   <link rel="stylesheet" href="{{ '/main.css' | relative_url }}">
+
+  <script>
+  window.IDEAL_IPHONES = {{ site.data.iphones | jsonify }};
+  window.IDEAL_MACS    = {{ site.data.macs    | jsonify }};
+  window.IDEAL_IPADS   = {{ site.data.ipads   | jsonify }};
+  window.IDEAL_WATCHES = {{ site.data.watches | jsonify }};
+</script>
+
 </head>
 <body>
 
@@ -21,5 +29,7 @@
   {% include footer.html %}
 
   <script src="{{ '/script.js' | relative_url }}"></script>
+
+
 </body>
 </html>

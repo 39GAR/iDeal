@@ -281,6 +281,28 @@ body{
   }
 }
 
+.ideal-nav__homeBtn{
+  width: 36px;
+  height: var(--navH);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(0,0,0,0.75);
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.ideal-nav__homeBtn svg{
+  width: 18px;
+  height: 18px;
+}
+
+.ideal-nav__homeBtn:hover{
+  background: rgba(0,0,0,0.05);
+  color: rgba(0,0,0,0.9);
+}
+
+
 
 /* ===== Footer (Apple-clean) ===== */
 .ideal-footer{
@@ -816,13 +838,13 @@ body{
 .hero__cardTitle{
   font-size: 16px;
   font-weight: 700;
-  color: rgba(0,0,0,0.88);
+  color: rgba(255,255,255,0.88);
   margin-bottom: 4px;
 }
 
 .hero__cardMeta{
   font-size: 13px;
-  color: rgba(0,0,0,0.55);
+  color: rgba(255,255,255,0.88);
 }
 
 /* Responsive */
@@ -1178,4 +1200,538 @@ body{
     font-size: 17px;
     max-width: 46ch;
   }
+}
+/* ===== Payment trust note ===== */
+.payment-note{
+  margin: 12px 0 24px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.08);
+  font-size: 14px;
+  color: rgba(0,0,0,0.65);
+}
+
+.payment-note strong{
+  color: rgba(0,0,0,0.9);
+  font-weight: 600;
+}
+
+/* ===== iPhone page grid ===== */
+.iphone-page{
+  background: #FAFAFC;
+}
+
+.iphone-page__inner{
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 48px 16px 96px;
+}
+
+.iphone-page__intro{
+  margin: 0 0 18px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(0,0,0,0.62);
+  max-width: 70ch;
+}
+
+/* 2-by-2 desktop grid */
+.iphone-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+/* 1 column mobile */
+@media (max-width: 900px){
+  .iphone-grid{ grid-template-columns: 1fr; }
+}
+
+.iphone-card{
+  border-radius: 26px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.78);
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 18px 60px rgba(0,0,0,0.08);
+}
+
+.iphone-card__media{
+  aspect-ratio: 16 / 10;
+  background: rgba(0,0,0,0.03);
+}
+
+.iphone-card__media img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover; /* change to contain if you don’t want cropping */
+  object-position: center;
+}
+
+.iphone-card__body{
+  padding: 18px 18px 20px;
+  display: grid;
+  gap: 8px;
+}
+
+.iphone-card__title{
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+  color: rgba(0,0,0,0.9);
+  font-weight: 700;
+}
+
+.iphone-card__price{
+  font-size: 14px;
+  color: rgba(0,0,0,0.62);
+}
+
+.iphone-card__btn{
+  margin-top: 6px;
+  display: inline-flex;
+  width: fit-content;
+  padding: 10px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(0,0,0,0.92);
+  transition: transform .12s ease, background .12s ease;
+}
+
+.iphone-card__btn:hover{ background: rgba(0,0,0,0.82); }
+.iphone-card__btn:active{ transform: scale(0.98); }
+
+/* Stagger reveal delay (works with your existing .reveal CSS) */
+.reveal{ transition-delay: var(--d, 0ms); }
+
+/* ===== Product catalog pages (Mac/iPad/Watch/iPhone) ===== */
+.catalog-page{
+  background: #FAFAFC;
+}
+
+.catalog-page__inner{
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 48px 16px 96px;
+}
+
+.catalog-page__intro{
+  margin: 0 0 18px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(0,0,0,0.62);
+  max-width: 70ch;
+}
+
+/* 2x2 desktop */
+.catalog-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+/* 1 column mobile */
+@media (max-width: 900px){
+  .catalog-grid{ grid-template-columns: 1fr; }
+}
+
+.catalog-card{
+  border-radius: 26px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.78);
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 18px 60px rgba(0,0,0,0.08);
+}
+
+.catalog-card__media{
+  aspect-ratio: 16 / 10;
+  background: rgba(0,0,0,0.03);
+}
+
+.catalog-card__media img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover; /* change to contain if you want no cropping */
+  object-position: center;
+}
+
+.catalog-card__body{
+  padding: 18px 18px 20px;
+  display: grid;
+  gap: 8px;
+}
+
+.catalog-card__title{
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+  color: rgba(0,0,0,0.9);
+  font-weight: 700;
+}
+
+.catalog-card__price{
+  font-size: 14px;
+  color: rgba(0,0,0,0.62);
+}
+
+.catalog-card__btn{
+  margin-top: 6px;
+  display: inline-flex;
+  width: fit-content;
+  padding: 10px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(0,0,0,0.92);
+  transition: transform .12s ease, background .12s ease;
+}
+
+.catalog-card__btn:hover{ background: rgba(0,0,0,0.82); }
+.catalog-card__btn:active{ transform: scale(0.98); }
+
+/* Stagger reveal delay */
+.reveal{ transition-delay: var(--d, 0ms); }
+
+/* ===== Product catalog pages (shared) ===== */
+.catalog-page{ background: #FAFAFC; }
+
+.catalog-page__inner{
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 48px 16px 96px;
+}
+
+.catalog-page__intro{
+  margin: 0 0 18px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(0,0,0,0.62);
+  max-width: 70ch;
+}
+
+/* 2x2 desktop */
+.catalog-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+/* 1 column mobile */
+@media (max-width: 900px){
+  .catalog-grid{ grid-template-columns: 1fr; }
+}
+
+.catalog-card{
+  border-radius: 26px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.78);
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 18px 60px rgba(0,0,0,0.08);
+}
+
+.catalog-card__media{
+  aspect-ratio: 16 / 10;
+  background: rgba(0,0,0,0.03);
+}
+
+.catalog-card__media img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover; /* change to contain to avoid cropping */
+  object-position: center;
+}
+
+.catalog-card__body{
+  padding: 18px 18px 20px;
+  display: grid;
+  gap: 8px;
+}
+
+.catalog-card__title{
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+  color: rgba(0,0,0,0.9);
+  font-weight: 700;
+}
+
+.catalog-card__price{
+  font-size: 14px;
+  color: rgba(0,0,0,0.62);
+}
+
+.catalog-card__btn{
+  margin-top: 6px;
+  display: inline-flex;
+  width: fit-content;
+  padding: 10px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(0,0,0,0.92);
+  transition: transform .12s ease, background .12s ease;
+}
+
+.catalog-card__btn:hover{ background: rgba(0,0,0,0.82); }
+.catalog-card__btn:active{ transform: scale(0.98); }
+
+/* Stagger reveal delay */
+.reveal{ transition-delay: var(--d, 0ms); }
+
+/* ===== iPhone Detail Page (PDP) ===== */
+.pdp{ background:#FAFAFC; }
+.pdp__inner{
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 44px 16px 96px;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 26px;
+  align-items: start;
+}
+
+.pdp__media{
+  border-radius: 26px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: rgba(255,255,255,0.8);
+  box-shadow: 0 18px 60px rgba(0,0,0,0.08);
+}
+
+.pdp__img{
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.pdp__eyebrow{
+  margin: 0 0 10px;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: rgba(0,0,0,0.55);
+}
+
+.pdp__title{
+  margin: 0 0 14px;
+  font-size: clamp(28px, 3.4vw, 42px);
+  letter-spacing: -0.03em;
+  color: rgba(0,0,0,0.92);
+  font-weight: 750;
+}
+
+.pdp__priceRow{
+  display:flex;
+  gap: 12px;
+  align-items: baseline;
+  margin-bottom: 18px;
+}
+.pdp__priceLabel{ color: rgba(0,0,0,0.55); font-size: 14px; }
+.pdp__price{ color: rgba(0,0,0,0.92); font-size: 22px; font-weight: 750; letter-spacing: -0.02em; }
+
+.pdp__block{
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: rgba(255,255,255,0.7);
+}
+
+.pdp__blockHead{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.pdp__blockTitle{
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: rgba(0,0,0,0.88);
+}
+
+.pdp__muted{ font-size: 13px; color: rgba(0,0,0,0.55); }
+
+.pdp__options{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pdp__opt{
+  border: 1px solid rgba(0,0,0,0.12);
+  background: rgba(0,0,0,0.04);
+  color: rgba(0,0,0,0.86);
+  border-radius: 999px;
+  padding: 10px 12px;
+  font-size: 14px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: transform .12s ease, background .12s ease, border-color .12s ease;
+}
+.pdp__opt:active{ transform: scale(0.98); }
+.pdp__opt:hover{ background: rgba(0,0,0,0.06); }
+
+.pdp__opt.is-selected{
+  background: rgba(0,0,0,0.92);
+  color: #fff;
+  border-color: rgba(0,0,0,0.92);
+}
+
+.pdp__opt.is-disabled{
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.pdp__ctaRow{
+  margin-top: 18px;
+  display: grid;
+  gap: 10px;
+}
+
+.pdp__btn{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 999px;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: #fff;
+  background: rgba(0,0,0,0.92);
+  font-weight: 750;
+}
+.pdp__btn:hover{ background: rgba(0,0,0,0.82); }
+
+.pdp__note{
+  margin: 0;
+  font-size: 13px;
+  color: rgba(0,0,0,0.55);
+}
+
+@media (max-width: 900px){
+  .pdp__inner{
+    grid-template-columns: 1fr;
+    padding: 28px 16px 72px;
+  }
+}
+
+.pdp__thumbs{
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.pdp__thumb{
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.10);
+  background: rgba(0,0,0,0.02);
+  padding: 0;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.pdp__thumb img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pdp__thumb.is-active{
+  border-color: rgba(0,0,0,0.30);
+}
+
+.pdp__gallery{ position: relative; }
+
+.pdp__dots{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 14px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  pointer-events: auto;
+}
+
+.pdp__dot{
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  border: 0;
+  background: rgba(0,0,0,0.25);
+  cursor: pointer;
+  padding: 0;
+}
+
+.pdp__dot.is-active{
+  background: rgba(0,0,0,0.65);
+}
+
+/* ===== Product Image Frame ===== */
+.pdp__gallery{
+  width: 100%;
+  max-width: 640px;
+}
+
+.pdp__frame{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 0.8;      /* perfect square */
+  border-radius: 28px;      /* Apple-like smooth corners */
+  overflow: hidden;
+  background: #f5f5f7;      /* subtle neutral background */
+}
+
+/* The actual image */
+.pdp__img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* fills frame, crops if needed */
+  object-position: center;  /* keep subject centered */
+  display: block;
+}
+
+/* ===== Shared Product Media Frame ===== */
+.media-frame{
+  position: relative;
+  width: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #f5f5f7;
+}
+
+.media-frame--square{
+  aspect-ratio: 1 / 1;
+}
+
+.media-frame--pad{
+  aspect-ratio: 5 / 4;
+}
+
+.media-frame--wide{
+  aspect-ratio: 16 / 10;
+}
+
+.media-frame__img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }

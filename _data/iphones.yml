@@ -1,0 +1,1746 @@
+# ===== iPhone 17 series =====
+- slug: iphone-17-pro-max
+  model: iPhone 17 Pro Max
+  base_price: 25000
+  image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1768096135/17-pro-front_lkm5pv.jpg"
+  link: "/checkout"
+
+  settings:
+    enable_colors: true
+    enable_storage: true
+
+  colors:
+    - id: black
+      name: Black
+      images:
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768062537/black-17-pro-max-2_rqcsqk.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768062537/black-17-pro-max-4_oen2sm.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768062511/black-17-pro-max-1_thyuuz.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768062538/black-17-pro-max-3_lrlqps.jpg"
+      price_delta: 0
+      available: false
+
+    - id: silver
+      name: Silver
+      images:
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768061557/white-17-pro-max-1_nab6ol.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768061536/white-17-pro-max-3_x1xk5j.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768061516/white-17-pro-max-4_edoqdx.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768061536/white-17-pro-max-2_fg5zab.jpg"
+      price_delta: 0
+      available: true
+
+    - id: orange
+      name: Orange
+      images:
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768094438/Orange-17-pro-max-1_ijwhdp.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768094438/Orange-17-pro-max-2_xu5di7.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768094465/Orange-17-pro-max-3_m46wlu.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768094465/Orange-17-pro-max-4_twdai5.jpg"
+      price_delta: 0
+      available: true
+
+  storage:
+    - id: 256
+      label: 256GB
+      price_delta: 0
+      available: true
+
+    - id: 512
+      label: 512GB
+      price_delta: 0
+      available: false
+
+    - id: 1tb
+      label: 1TB
+      price_delta: 0
+      available: false
+
+
+# - slug: iphone-17-pro
+# /  model: iPhone 17 Pro
+  # base_price: "N/A"
+  # image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1768096135/17-pro-front_lkm5pv.jpg"
+  # link: "/checkout"
+
+  # settings:
+    # enable_colors: true
+    # enable_storage: true
+
+#   colors:
+#     - id: black
+#       name: Black
+#       images:
+#         - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768062537/black-17-pro-max-2_rqcsqk.jpg"
+#         - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768062537/black-17-pro-max-4_oen2sm.jpg"
+#         - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768062511/black-17-pro-max-1_thyuuz.jpg"
+#         - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768062538/black-17-pro-max-3_lrlqps.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: silver
+#       name: Silver
+#       images:
+#         - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768061557/white-17-pro-max-1_nab6ol.jpg"
+#         - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768061536/white-17-pro-max-3_x1xk5j.jpg"
+#         - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768061516/white-17-pro-max-4_edoqdx.jpg"
+#         - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768061536/white-17-pro-max-2_fg5zab.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: orange
+#       name: Orange
+#       images:
+#         - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768094438/Orange-17-pro-max-1_ijwhdp.jpg"
+#         - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768094438/Orange-17-pro-max-2_xu5di7.jpg"
+#         - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768094465/Orange-17-pro-max-3_m46wlu.jpg"
+#         - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768094465/Orange-17-pro-max-4_twdai5.jpg"
+#       price_delta: 0
+#       available: true
+#
+#   storage:
+#     - id: 128
+#       label: 128GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 256
+#       label: 256GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 512
+#       label: 512GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 1tb
+#       label: 1TB
+#       price_delta: 0
+#       available: true
+#
+#
+# - slug: iphone-17-air
+#   model: iPhone 17 Air
+#   base_price: 0
+#   image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#   link: "/checkout"
+#
+#   settings:
+#     enable_colors: true
+#     enable_storage: true
+#
+#   colors:
+#     - id: black
+#       name: Black
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: white
+#       name: White
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: blue
+#       name: Blue
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#   storage:
+#     - id: 128
+#       label: 128GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 256
+#       label: 256GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 512
+#       label: 512GB
+#       price_delta: 0
+#       available: true
+#
+#
+- slug: iphone-17
+  model: iPhone 17
+  base_price: 18799
+  image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1768132713/17-front_pdx9gv.jpg"
+  link: "/checkout"
+
+  settings:
+    enable_colors: true
+    enable_storage: true
+
+  colors:
+    - id: lavender
+      name: Lavender
+      images:
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768097727/lavender-17-1_f1hhgw.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768097727/lavender-17-3_satrhi.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768097727/lavender-17-4_toe1zq.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768097727/lavender-17-2_ch7pq3.jpg"
+      price_delta: 0
+      available: true
+
+    - id: blue
+      name: Blue
+      images:
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768097696/blue-17-4_dmoamn.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768097696/blue-17-1_jeky3d.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768097697/blue-17-3_tt9wfw.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768097696/blue-17-2_nkiwcq.jpg"
+      price_delta: 0
+      available: true
+
+    - id: black
+      name: Black
+      image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+      price_delta: 0
+      available: false
+
+  storage:
+    - id: 128
+      label: 128GB
+      price_delta: 0
+      available: false
+
+    - id: 256
+      label: 256GB
+      price_delta: 0
+      available: true
+
+    - id: 512
+      label: 512GB
+      price_delta: 0
+      available: false
+
+
+# ===== iPhone 16 series =====
+- slug: iphone-16-pro-max
+  model: iPhone 16 Pro Max
+  base_price: 19900
+  image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1768100498/16-pro-max-front_npvifx.jpg"
+  link: "/checkout"
+
+  settings:
+    enable_colors: true
+    enable_storage: true
+
+  colors:
+    - id: black
+      name: Black
+      images:
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768100113/black-16-pro-max-4_vy71jq.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768100010/black-16-pro-max-1_h6dmlz.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768100010/black-16-pro-max-3_dujb7x.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768100010/black-16-pro-max-2_bm0vsg.jpg"
+      price_delta: 0
+      available: true
+
+    - id: white
+      name: White
+      images:
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768100630/white-16-pro-max-1_zrsmgc.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768100629/white-16-pro-max-3_ltg2ul.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768100629/white-16-pro-max-2_e0mkaw.jpg"
+      price_delta: 0
+      available: false
+
+    - id: blue
+      name: Blue
+      image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+      price_delta: 0
+      available: false
+
+  storage:
+    - id: 256
+      label: 256GB
+      price_delta: 0
+      available: true
+
+    - id: 512
+      label: 512GB
+      price_delta: 1000
+      available: true
+
+    - id: 1tb
+      label: 1TB
+      price_delta: 0
+      available: false
+
+
+- slug: iphone-16-pro
+  model: iPhone 16 Pro
+  base_price: 14200
+  image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1768133495/16-plus-front_lqckmt.jpg"
+  link: "/checkout"
+
+  settings:
+    enable_colors: true
+    enable_storage: true
+
+  storage:
+    - id: 128
+      label: 128GB
+      price_delta: 0
+      available: true
+
+    - id: 256
+      label: 256GB
+      price_delta: 1100
+      available: true
+
+    - id: 512
+      label: 512GB
+      price_delta: 0
+      available: true
+
+    - id: 1tb
+      label: 1TB
+      price_delta: 0
+      available: true
+
+  colors:
+    - id: desert
+      name: Desert
+      image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1768123501/desert-16-pro-2_ibsozy.jpg"
+      images:
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768123501/desert-16-pro-2_ibsozy.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768124033/desert-16-pro-3_g7kqlg.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768124006/desert-16-pro-1_laz8sh.jpg"
+      price_delta: 0
+      available: true
+      storage_available: [128]
+
+    - id: natural
+      name: Natural
+      image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1768100630/white-16-pro-max-1_zrsmgc.jpg"
+      images:
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768100630/white-16-pro-max-1_zrsmgc.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768120396/white-16-pro-1_g4x2si.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768100629/white-16-pro-max-2_e0mkaw.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768121045/white-16-pro-3_kbvnw6.jpg"
+      price_delta: 0
+      available: true
+      storage_available: [128]
+
+    - id: black
+      name: Black
+      image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1768100010/black-16-pro-max-1_h6dmlz.jpg"
+      images:
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768100113/black-16-pro-max-4_vy71jq.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768100010/black-16-pro-max-1_h6dmlz.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768100010/black-16-pro-max-3_dujb7x.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768100010/black-16-pro-max-2_bm0vsg.jpg"
+      price_delta: 2900
+      available: true
+      storage_available: [128, 256]
+
+
+
+- slug: iphone-16-plus
+  model: iPhone 16 Plus
+  base_price: 15350
+  image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1768098004/17-front_nmdz5z.jpg"
+  link: "/checkout"
+
+  settings:
+    enable_colors: true
+    enable_storage: true
+
+  colors:
+    - id: black
+      name: Black
+      images:
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768131717/black-16-plus-1_ytwy79.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768131718/black-16-plus-2_dlwnft.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768131688/black-16-plus-3_nm4vho.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768131735/black-16-plus-4_kb0jqr.jpg"
+      price_delta: 0
+      available: true
+
+    # - id: white
+    #   name: White
+    #   image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+    #   price_delta: 0
+    #   available: true
+
+    - id: ultramarine
+      name: Ultramarine
+      images:
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768131797/ultramarine-16-plus-1_f4u4pe.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768131797/ultramarine-16-plus-2_yccwdc.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768131766/ultramarine-16-plus-3_vfmkwt.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768131767/ultramarine-16-plus-4_exbur4.jpg"
+      price_delta: 0
+      available: true
+
+  storage:
+    - id: 128
+      label: 128GB
+      price_delta: 0
+      available: true
+
+    - id: 256
+      label: 256GB
+      price_delta: 0
+      available: false
+
+    - id: 512
+      label: 512GB
+      price_delta: 0
+      available: false
+
+
+- slug: iphone-16
+  model: iPhone 16
+  base_price: 12200
+  image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1768192382/16-front_k4se1t.jpg"
+  link: "/checkout"
+
+  settings:
+    enable_colors: true
+    enable_storage: true
+
+  colors:
+    - id: white
+      name: White
+      images:
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768191095/white-16-1_np5cvs.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768191095/white-16-2_x5kl7y.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768191096/white-16-3_unfc9j.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768191684/white-16-4_qadtjn.jpg"
+      price_delta: 0
+      available: true
+
+    - id: pink
+      name: Pink
+      images:
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768191125/pink-16-1_lj7emi.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768191126/pink-16-4_tihpfc.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768191125/pink-16-3_f72qti.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768191124/pink-16-2_tz9qrx.jpg"
+      price_delta: 0
+      available: true
+
+    - id: blue
+      name: Blue
+      image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+      price_delta: 0
+      available: false
+
+  storage:
+    - id: 128
+      label: 128GB
+      price_delta: 0
+      available: true
+
+    - id: 256
+      label: 256GB
+      price_delta: 0
+      available: false
+
+    - id: 512
+      label: 512GB
+      price_delta: 0
+      available: false
+
+
+# ===== iPhone 15 series =====
+- slug: iphone-15-pro-max
+  model: iPhone 15 Pro Max
+  base_price: 15550
+  image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1768217370/15-pro-max-front_btxb1a.jpg"
+  link: "/checkout"
+
+  settings:
+    enable_colors: true
+    enable_storage: true
+
+  storage:
+    - id: 256
+      label: 256GB
+      price_delta: 0
+      available: true
+
+    - id: 512
+      label: 512GB
+      price_delta: 600
+      available: true
+
+    - id: 1tb
+      label: 1TB
+      price_delta: 0
+      available: true
+
+  colors:
+
+    - id: blue
+      name: Blue
+      images:
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768217397/blue-15-pro-max-1_xpewqi.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768217396/blue-15-pro-max-2_ifou5q.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768217412/blue-15-pro-max-3_oxdxm7.jpg"
+      price_delta: 0
+      available: true
+      storage_available: [256]
+
+    - id: black
+      name: Black
+      images:
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768218084/black-15-pro-max-1_bvfpqk.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768218084/black-15-pro-max-2_eiflck.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768218084/black-15-pro-max-_g43ni6.jpg"
+      price_delta: 0
+      available: true
+      storage_available: [512]
+
+
+    - id: white
+      name: White
+      images:
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768217452/white-15-pro-max-1_vol7w7.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768217451/white-15-pro-max-2_fktfkl.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768217451/white-15-pro-max-3_yvxnyi.jpg"
+      price_delta: 0
+      available: false
+
+
+- slug: iphone-15-pro
+  model: iPhone 15 Pro
+  base_price: 13350
+  image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1768219395/15-pro-front_xsxife.jpg"
+  link: "/checkout"
+
+  settings:
+    enable_colors: true
+    enable_storage: true
+
+  colors:
+    - id: black
+      name: Black
+      images:
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768218084/black-15-pro-max-1_bvfpqk.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768218084/black-15-pro-max-2_eiflck.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768218084/black-15-pro-max-_g43ni6.jpg"
+      price_delta: 0
+      available: true
+
+    - id: white
+      name: White
+      image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+      price_delta: 0
+      available: false
+
+    - id: blue
+      name: Blue
+      image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+      price_delta: 0
+      available: false
+
+  storage:
+    - id: 128
+      label: 128GB
+      price_delta: 0
+      available: true
+
+    - id: 256
+      label: 256GB
+      price_delta: 600
+      available: true
+
+    - id: 512
+      label: 512GB
+      price_delta: 1050
+      available: true
+
+    - id: 1tb
+      label: 1TB
+      price_delta: 0
+      available: false
+
+
+- slug: iphone-15-plus
+  model: iPhone 15 Plus
+  base_price: 9900
+  image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1768220380/15-plus-front_gjb10s.jpg"
+  link: "/checkout"
+
+  settings:
+    enable_colors: true
+    enable_storage: true
+
+  colors:
+    - id: black
+      name: Black
+      image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+      price_delta: 0
+      available: false
+
+    - id: white
+      name: White
+      image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+      price_delta: 0
+      available: false
+
+    - id: blue
+      name: Blue
+      images:
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768220400/blue-15-plus-1_tprrhe.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768220418/blue-15-plus-2_l7ceiw.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768220419/blue-15-plus-3_yljror.jpg"
+      price_delta: 0
+      available: true
+
+  storage:
+    - id: 128
+      label: 128GB
+      price_delta: 0
+      available: true
+
+    - id: 256
+      label: 256GB
+      price_delta: 0
+      available: false
+
+    - id: 512
+      label: 512GB
+      price_delta: 0
+      available: false
+
+
+- slug: iphone-15
+  model: iPhone 15
+  base_price: 9000
+  image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1768221822/15-front_zvyan7.jpg"
+  link: "/checkout"
+
+  settings:
+    enable_colors: true
+    enable_storage: true
+
+  storage:
+    - id: 128
+      label: 128GB
+      price_delta: 0
+      available: true
+
+    - id: 256
+      label: 256GB
+      price_delta: 1200
+      available: true
+
+    - id: 512
+      label: 512GB
+      price_delta: 0
+      available: true
+
+  colors:
+
+    - id: blue
+      name: Blue
+      images:
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768220400/blue-15-plus-1_tprrhe.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768220418/blue-15-plus-2_l7ceiw.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768220419/blue-15-plus-3_yljror.jpg"
+      price_delta: 1000
+      available: true
+      storage_available: [256]
+
+    - id: green
+      name: Green
+      images:
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768221855/green-15-1_pjvzgv.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768221882/green-15-3_kaglno.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768221856/green-15-2_yeaqsx.jpg"
+      price_delta: 2850
+      available: true
+      storage_available: [128]
+
+    - id: white
+      name: White
+      image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+      price_delta: 0
+      available: false
+
+
+# ===== iPhone 14 series =====
+# - slug: iphone-14-pro-max
+#   model: iPhone 14 Pro Max
+#   base_price: 0
+#   image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#   link: "/checkout"
+#
+#   settings:
+#     enable_colors: true
+#     enable_storage: true
+#
+#   colors:
+#     - id: black
+#       name: Black
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: white
+#       name: White
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: purple
+#       name: Purple
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#   storage:
+#     - id: 128
+#       label: 128GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 256
+#       label: 256GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 512
+#       label: 512GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 1tb
+#       label: 1TB
+#       price_delta: 0
+#       available: true
+#
+#
+# - slug: iphone-14-pro
+#   model: iPhone 14 Pro
+#   base_price: 0
+#   image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#   link: "/checkout"
+#
+#   settings:
+#     enable_colors: true
+#     enable_storage: true
+#
+#   colors:
+#     - id: black
+#       name: Black
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: white
+#       name: White
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: purple
+#       name: Purple
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#   storage:
+#     - id: 128
+#       label: 128GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 256
+#       label: 256GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 512
+#       label: 512GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 1tb
+#       label: 1TB
+#       price_delta: 0
+#       available: true
+#
+#
+# - slug: iphone-14-plus
+#   model: iPhone 14 Plus
+#   base_price: 0
+#   image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#   link: "/checkout"
+#
+#   settings:
+#     enable_colors: true
+#     enable_storage: true
+#
+#   colors:
+#     - id: black
+#       name: Black
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: white
+#       name: White
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: blue
+#       name: Blue
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#   storage:
+#     - id: 128
+#       label: 128GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 256
+#       label: 256GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 512
+#       label: 512GB
+#       price_delta: 0
+#       available: true
+
+
+- slug: iphone-14
+  model: iPhone 14
+  base_price: 9520
+  image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1768223790/14-front_akrvsr.jpg"
+  link: "/checkout"
+
+  settings:
+    enable_colors: true
+    enable_storage: true
+
+  colors:
+    - id: red
+      name: Red
+      images:
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768223820/red-14-1_fr0gyf.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768223837/red-14-3_vd8s13.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768223822/red-14-2_t5mb6s.jpg"
+      price_delta: 0
+      available: true
+
+    - id: purple
+      name: Purple
+      images:
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768223863/purple-14-1_opwmjf.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768223896/purple-14-2_jgh9di.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768223897/purple-14-3_e9iya4.jpg"
+      price_delta: 0
+      available: true
+
+    - id: blue
+      name: Blue
+      image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+      price_delta: 0
+      available: false
+
+  storage:
+    - id: 128
+      label: 128GB
+      price_delta: 0
+      available: true
+
+    - id: 256
+      label: 256GB
+      price_delta: 0
+      available: false
+
+    - id: 512
+      label: 512GB
+      price_delta: 0
+      available: false
+
+
+# ===== iPhone 13 series =====
+# - slug: iphone-13-pro-max
+#   model: iPhone 13 Pro Max
+#   base_price: 0
+#   image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#   link: "/checkout"
+#
+#   settings:
+#     enable_colors: true
+#     enable_storage: true
+#
+#   colors:
+#     - id: graphite
+#       name: Graphite
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: silver
+#       name: Silver
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: gold
+#       name: Gold
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#   storage:
+#     - id: 128
+#       label: 128GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 256
+#       label: 256GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 512
+#       label: 512GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 1tb
+#       label: 1TB
+#       price_delta: 0
+#       available: true
+#
+#
+# - slug: iphone-13-pro
+#   model: iPhone 13 Pro
+#   base_price: 0
+#   image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#   link: "/checkout"
+#
+#   settings:
+#     enable_colors: true
+#     enable_storage: true
+#
+#   colors:
+#     - id: graphite
+#       name: Graphite
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: silver
+#       name: Silver
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: gold
+#       name: Gold
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#   storage:
+#     - id: 128
+#       label: 128GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 256
+#       label: 256GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 512
+#       label: 512GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 1tb
+#       label: 1TB
+#       price_delta: 0
+#       available: true
+#
+#
+# - slug: iphone-13-mini
+#   model: iPhone 13 mini
+#   base_price: 0
+#   image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#   link: "/checkout"
+#
+#   settings:
+#     enable_colors: true
+#     enable_storage: true
+#
+#   colors:
+#     - id: black
+#       name: Black
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: white
+#       name: White
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: red
+#       name: "(PRODUCT)RED"
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#   storage:
+#     - id: 128
+#       label: 128GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 256
+#       label: 256GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 512
+#       label: 512GB
+#       price_delta: 0
+#       available: true
+#
+# - slug: iphone-13
+#   model: iPhone 13
+#   base_price: 0
+#   image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#   link: "/checkout"
+#
+#   settings:
+#     enable_colors: true
+#     enable_storage: true
+#
+#   colors:
+#     - id: black
+#       name: Black
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: white
+#       name: White
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: red
+#       name: "(PRODUCT)RED"
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#   storage:
+#     - id: 128
+#       label: 128GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 256
+#       label: 256GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 512
+#       label: 512GB
+#       price_delta: 0
+#       available: true
+#
+#
+# # ===== iPhone 12 series =====
+# - slug: iphone-12-pro-max
+#   model: iPhone 12 Pro Max
+#   base_price: 0
+#   image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#   link: "/checkout"
+#
+#   settings:
+#     enable_colors: true
+#     enable_storage: true
+#
+#   colors:
+#     - id: graphite
+#       name: Graphite
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: silver
+#       name: Silver
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: gold
+#       name: Gold
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#   storage:
+#     - id: 128
+#       label: 128GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 256
+#       label: 256GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 512
+#       label: 512GB
+#       price_delta: 0
+#       available: true
+#
+# - slug: iphone-12-pro
+#   model: iPhone 12 Pro
+#   base_price: 0
+#   image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#   link: "/checkout"
+#
+#   settings:
+#     enable_colors: true
+#     enable_storage: true
+#
+#   colors:
+#     - id: graphite
+#       name: Graphite
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: silver
+#       name: Silver
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: gold
+#       name: Gold
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#   storage:
+#     - id: 128
+#       label: 128GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 256
+#       label: 256GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 512
+#       label: 512GB
+#       price_delta: 0
+#       available: true
+#
+#
+# - slug: iphone-12-mini
+#   model: iPhone 12 mini
+#   base_price: 0
+#   image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#   link: "/checkout"
+#
+#   settings:
+#     enable_colors: true
+#     enable_storage: true
+#
+#   colors:
+#     - id: black
+#       name: Black
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: white
+#       name: White
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: red
+#       name: "(PRODUCT)RED"
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#   storage:
+#     - id: 64
+#       label: 64GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 128
+#       label: 128GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 256
+#       label: 256GB
+#       price_delta: 0
+#       available: true
+#
+#
+# - slug: iphone-12
+#   model: iPhone 12
+#   base_price: 0
+#   image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#   link: "/checkout"
+#
+#   settings:
+#     enable_colors: true
+#     enable_storage: true
+#
+#   colors:
+#     - id: black
+#       name: Black
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: white
+#       name: White
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: red
+#       name: "(PRODUCT)RED"
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#   storage:
+#     - id: 64
+#       label: 64GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 128
+#       label: 128GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 256
+#       label: 256GB
+#       price_delta: 0
+#       available: true
+#
+#
+# # ===== iPhone 11 series =====
+# - slug: iphone-11-pro-max
+#   model: iPhone 11 Pro Max
+#   base_price: 0
+#   image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#   link: "/checkout"
+#
+#   settings:
+#     enable_colors: true
+#     enable_storage: true
+#
+#   colors:
+#     - id: midnight-green
+#       name: Midnight Green
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: silver
+#       name: Silver
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: space-gray
+#       name: Space Gray
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#   storage:
+#     - id: 64
+#       label: 64GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 256
+#       label: 256GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 512
+#       label: 512GB
+#       price_delta: 0
+#       available: true
+#
+#
+# - slug: iphone-11-pro
+#   model: iPhone 11 Pro
+#   base_price: 0
+#   image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#   link: "/checkout"
+#
+#   settings:
+#     enable_colors: true
+#     enable_storage: true
+#
+#   colors:
+#     - id: midnight-green
+#       name: Midnight Green
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: silver
+#       name: Silver
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: space-gray
+#       name: Space Gray
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#   storage:
+#     - id: 64
+#       label: 64GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 256
+#       label: 256GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 512
+#       label: 512GB
+#       price_delta: 0
+#       available: true
+#
+#
+# - slug: iphone-11
+#   model: iPhone 11
+#   base_price: 0
+#   image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#   link: "/checkout"
+#
+#   settings:
+#     enable_colors: true
+#     enable_storage: true
+#
+#   colors:
+#     - id: black
+#       name: Black
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: white
+#       name: White
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: red
+#       name: "(PRODUCT)RED"
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#   storage:
+#     - id: 64
+#       label: 64GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 128
+#       label: 128GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 256
+#       label: 256GB
+#       price_delta: 0
+#       available: true
+#
+#
+# # ===== iPhone XS / XR series =====
+# - slug: iphone-xs-max
+#   model: iPhone XS Max
+#   base_price: 0
+#   image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#   link: "/checkout"
+#
+#   settings:
+#     enable_colors: true
+#     enable_storage: true
+#
+#   colors:
+#     - id: gold
+#       name: Gold
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: silver
+#       name: Silver
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: space-gray
+#       name: Space Gray
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#   storage:
+#     - id: 64
+#       label: 64GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 256
+#       label: 256GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 512
+#       label: 512GB
+#       price_delta: 0
+#       available: true
+#
+#
+# - slug: iphone-xs
+#   model: iPhone XS
+#   base_price: 0
+#   image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#   link: "/checkout"
+#
+#   settings:
+#     enable_colors: true
+#     enable_storage: true
+#
+#   colors:
+#     - id: gold
+#       name: Gold
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: silver
+#       name: Silver
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: space-gray
+#       name: Space Gray
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#   storage:
+#     - id: 64
+#       label: 64GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 256
+#       label: 256GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 512
+#       label: 512GB
+#       price_delta: 0
+#       available: true
+#
+# - slug: iphone-xr
+#   model: iPhone XR
+#   base_price: 0
+#   image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#   link: "/checkout"
+#
+#   settings:
+#     enable_colors: true
+#     enable_storage: true
+#
+#   colors:
+#     - id: black
+#       name: Black
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: white
+#       name: White
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: blue
+#       name: Blue
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#   storage:
+#     - id: 64
+#       label: 64GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 128
+#       label: 128GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 256
+#       label: 256GB
+#       price_delta: 0
+#       available: true
+#
+#
+# # ===== iPhone X =====
+# - slug: iphone-x
+#   model: iPhone X
+#   base_price: 0
+#   image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#   link: "/checkout"
+#
+#   settings:
+#     enable_colors: true
+#     enable_storage: true
+#
+#   colors:
+#     - id: silver
+#       name: Silver
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: space-gray
+#       name: Space Gray
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#   storage:
+#     - id: 64
+#       label: 64GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 256
+#       label: 256GB
+#       price_delta: 0
+#       available: true
+#
+#
+# # ===== iPhone 8 / 7 =====
+# - slug: iphone-8-plus
+#   model: iPhone 8 Plus
+#   base_price: 0
+#   image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#   link: "/checkout"
+#
+#   settings:
+#     enable_colors: true
+#     enable_storage: true
+#
+#   colors:
+#     - id: gold
+#       name: Gold
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: silver
+#       name: Silver
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: space-gray
+#       name: Space Gray
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#   storage:
+#     - id: 64
+#       label: 64GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 128
+#       label: 128GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 256
+#       label: 256GB
+#       price_delta: 0
+#       available: true
+#
+#
+# - slug: iphone-8
+#   model: iPhone 8
+#   base_price: 0
+#   image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#   link: "/checkout"
+#
+#   settings:
+#     enable_colors: true
+#     enable_storage: true
+#
+#   colors:
+#     - id: gold
+#       name: Gold
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: silver
+#       name: Silver
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: space-gray
+#       name: Space Gray
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#   storage:
+#     - id: 64
+#       label: 64GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 128
+#       label: 128GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 256
+#       label: 256GB
+#       price_delta: 0
+#       available: true
+#
+#
+# - slug: iphone-7-plus
+#   model: iPhone 7 Plus
+#   base_price: 0
+#   image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#   link: "/checkout"
+#
+#   settings:
+#     enable_colors: true
+#     enable_storage: true
+#
+#   colors:
+#     - id: black
+#       name: Black
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: silver
+#       name: Silver
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: gold
+#       name: Gold
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#   storage:
+#     - id: 32
+#       label: 32GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 128
+#       label: 128GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 256
+#       label: 256GB
+#       price_delta: 0
+#       available: true
+#
+#
+# - slug: iphone-7
+#   model: iPhone 7
+#   base_price: 0
+#   image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#   link: "/checkout"
+#
+#   settings:
+#     enable_colors: true
+#     enable_storage: true
+#
+#   colors:
+#     - id: black
+#       name: Black
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: silver
+#       name: Silver
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#     - id: gold
+#       name: Gold
+#       image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1766231245/iPhone_17_2_kc8jnc.jpg"
+#       price_delta: 0
+#       available: true
+#
+#   storage:
+#     - id: 32
+#       label: 32GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 128
+#       label: 128GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 256
+#       label: 256GB
+#       price_delta: 0
+#       available: true

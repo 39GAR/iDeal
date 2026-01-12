@@ -1,0 +1,298 @@
+---
+layout: default
+title: iPad Details
+permalink: /ipad-detail/
+---
+
+<section class="pdp">
+  <div class="pdp__inner">
+    <div class="pdp__gallery">
+      <div class="media-frame media-frame--pad">
+        <img id="pdpImage" class="media-frame__img" alt="" />
+      </div>
+      <div id="pdpDots" class="pdp__dots"></div>
+    </div>
+
+    <div class="pdp__info">
+      <p class="pdp__eyebrow reveal">iPad</p>
+      <h1 id="pdpTitle" class="pdp__title reveal"></h1>
+
+      <div class="pdp__priceRow reveal">
+        <span class="pdp__priceLabel">Starting from</span>
+        <span id="pdpPrice" class="pdp__price"></span>
+      </div>
+
+      <!-- Color -->
+      <div id="colorBlock" class="pdp__block reveal" hidden>
+        <div class="pdp__blockHead">
+          <h2 class="pdp__blockTitle">Color</h2>
+          <span id="pdpColorName" class="pdp__muted"></span>
+        </div>
+        <div id="colorOptions" class="pdp__options"></div>
+      </div>
+
+      <!-- Connectivity -->
+      <div id="connBlock" class="pdp__block reveal" hidden>
+        <div class="pdp__blockHead">
+          <h2 class="pdp__blockTitle">Connectivity</h2>
+          <span id="pdpConnName" class="pdp__muted"></span>
+        </div>
+        <div id="connOptions" class="pdp__options"></div>
+      </div>
+
+      <!-- Storage -->
+      <div id="storageBlock" class="pdp__block reveal" hidden>
+        <div class="pdp__blockHead">
+          <h2 class="pdp__blockTitle">Storage</h2>
+          <span id="pdpStorageName" class="pdp__muted"></span>
+        </div>
+        <div id="storageOptions" class="pdp__options"></div>
+      </div>
+
+      <div class="pdp__ctaRow reveal">
+        <a id="pdpBuy" class="pdp__btn" href="{{ '/checkout' | relative_url }}">Checkout</a>
+        <p class="pdp__note">Secure checkout with Apple Pay, PayPal, or Bank Card.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+(() => {
+  const fmt = new Intl.NumberFormat("en-ZA", {
+    style: "currency",
+    currency: "ZAR",
+    maximumFractionDigits: 0
+  });
+
+  const $ = (id) => document.getElementById(id);
+
+  const slug = (new URLSearchParams(location.search).get("item") || "").trim();
+
+  const items = window.IDEAL_IPADS || [];
+  const product = items.find(p => p.slug === slug);
+
+  const titleEl = $("pdpTitle");
+  const priceEl = $("pdpPrice");
+  const imageEl = $("pdpImage");
+  const dotsEl  = $("pdpDots");
+  const buyEl   = $("pdpBuy");
+
+  if (!product) {
+    if (titleEl) titleEl.textContent = "iPad not found";
+    if (priceEl) priceEl.textContent = "";
+    return;
+  }
+
+  const settings = product.settings || {};
+  const colors = Array.isArray(product.colors) ? product.colors : [];
+  const storage = Array.isArray(product.storage) ? product.storage : [];
+  const connectivity = Array.isArray(product.connectivity) ? product.connectivity : [];
+
+  const firstAvail = (arr) => arr.find(x => x && x.available !== false) || arr[0] || null;
+
+  let selColor = firstAvail(colors);
+  let selStorage = firstAvail(storage);
+  let selConn = firstAvail(connectivity);
+
+  // ===== Gallery (manual dots) =====
+  let gallery = [];
+  let galleryIndex = 0;
+
+  const getGallery = () => {
+    if (selColor && Array.isArray(selColor.images) && selColor.images.length) {
+      return selColor.images;
+    }
+    if (selColor && typeof selColor.image === "string" && selColor.image) {
+      return [selColor.image];
+    }
+    if (typeof product.image === "string" && product.image) {
+      return [product.image];
+    }
+    return [];
+  };
+
+  const setGalleryIndex = (i) => {
+    if (!gallery.length || !imageEl) return;
+
+    galleryIndex = (i + gallery.length) % gallery.length;
+    imageEl.src = gallery[galleryIndex] || "";
+    imageEl.alt = product.model || "iPad";
+
+    if (dotsEl) {
+      [...dotsEl.children].forEach((d, idx) => {
+        d.classList.toggle("is-active", idx === galleryIndex);
+      });
+    }
+  };
+
+  const renderDots = () => {
+    if (!dotsEl) return;
+
+    dotsEl.innerHTML = "";
+    if (gallery.length <= 1) return;
+
+    gallery.forEach((_, idx) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "pdp__dot" + (idx === galleryIndex ? " is-active" : "");
+      b.setAttribute("aria-label", `Image ${idx + 1}`);
+      b.addEventListener("click", () => setGalleryIndex(idx));
+      dotsEl.appendChild(b);
+    });
+  };
+
+  // ===== Per-color storage availability =====
+  const applyStorageAvailabilityForColor = () => {
+    const root = $("storageOptions");
+    if (!root || !selColor) return;
+
+    const allowed = selColor.storage_available;
+
+    // No restriction -> enable all that are globally available
+    if (!Array.isArray(allowed) || allowed.length === 0) {
+      [...root.children].forEach((btn, i) => {
+        const opt = storage[i];
+        const globallyDisabled = (opt?.available === false);
+        btn.disabled = globallyDisabled;
+        btn.classList.toggle("is-disabled", globallyDisabled);
+      });
+      return;
+    }
+
+    // Restriction -> enable only allowed AND globally available
+    [...root.children].forEach((btn, i) => {
+      const opt = storage[i];
+      if (!opt) return;
+
+      const inAllowed = allowed.includes(opt.id) || allowed.includes(String(opt.id));
+      const globallyOk = opt.available !== false;
+      const ok = inAllowed && globallyOk;
+
+      btn.disabled = !ok;
+      btn.classList.toggle("is-disabled", !ok);
+    });
+
+    // If selected storage not allowed -> pick first allowed
+    const selectedOk =
+      allowed.includes(selStorage?.id) ||
+      allowed.includes(String(selStorage?.id));
+
+    if (!selectedOk) {
+      const next = storage.find(s =>
+        (allowed.includes(s.id) || allowed.includes(String(s.id))) && s.available !== false
+      );
+      if (next) selStorage = next;
+    }
+  };
+
+  // ===== Price =====
+  const compute = () => {
+    const base = Number(product.base_price || 0);
+    const c = Number(selColor?.price_delta || 0);
+    const s = Number(selStorage?.price_delta || 0);
+    const n = Number(selConn?.price_delta || 0);
+    return base + c + s + n;
+  };
+
+  // ===== Helpers =====
+  const setSelectedClass = (root, list, selected) => {
+    if (!root) return;
+    [...root.children].forEach((el, i) => {
+      el.classList.toggle("is-selected", list[i] === selected);
+    });
+  };
+
+  const renderOptions = (root, list, labelFn, onPick) => {
+    if (!root) return;
+    root.innerHTML = "";
+
+    list.forEach(opt => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "pdp__opt";
+      b.textContent = labelFn(opt);
+
+      if (opt?.available === false) {
+        b.classList.add("is-disabled");
+        b.disabled = true;
+      }
+
+      b.addEventListener("click", () => onPick(opt));
+      root.appendChild(b);
+    });
+  };
+
+  // ===== UI update =====
+  const update = () => {
+    if (titleEl) titleEl.textContent = product.model || "iPad";
+    if (priceEl) priceEl.textContent = fmt.format(compute());
+
+    if ($("pdpColorName")) $("pdpColorName").textContent = selColor?.name || "";
+    if ($("pdpStorageName")) $("pdpStorageName").textContent = selStorage?.label || "";
+    if ($("pdpConnName")) $("pdpConnName").textContent = selConn?.label || "";
+
+    // Refresh gallery for selected color
+    gallery = getGallery();
+    galleryIndex = 0;
+    renderDots();
+    setGalleryIndex(0);
+
+    // Build checkout URL with selected options
+    if (buyEl) {
+      const q = new URLSearchParams();
+      q.set("item", product.slug);
+      if (selColor?.id) q.set("color", selColor.id);
+      if (selConn?.id) q.set("conn", selConn.id);
+      if (selStorage?.id) q.set("storage", selStorage.id);
+      buyEl.href = "{{ '/checkout' | relative_url }}" + "?" + q.toString();
+    }
+  };
+
+  // ===== Show/hide blocks based on settings + data =====
+  const showColors = settings.enable_colors !== false && colors.length;
+  const showStorage = settings.enable_storage !== false && storage.length;
+  const showConn = settings.enable_connectivity !== false && connectivity.length;
+
+  if (showColors) {
+    $("colorBlock").hidden = false;
+    renderOptions($("colorOptions"), colors, x => x.name, (x) => {
+      selColor = x;
+      setSelectedClass($("colorOptions"), colors, x);
+
+      // Update storage rules when color changes
+      applyStorageAvailabilityForColor();
+      setSelectedClass($("storageOptions"), storage, selStorage);
+
+      update();
+    });
+    setSelectedClass($("colorOptions"), colors, selColor);
+  }
+
+  if (showConn) {
+    $("connBlock").hidden = false;
+    renderOptions($("connOptions"), connectivity, x => x.label, (x) => {
+      selConn = x;
+      setSelectedClass($("connOptions"), connectivity, x);
+      update();
+    });
+    setSelectedClass($("connOptions"), connectivity, selConn);
+  }
+
+  if (showStorage) {
+    $("storageBlock").hidden = false;
+    renderOptions($("storageOptions"), storage, x => x.label, (x) => {
+      selStorage = x;
+      setSelectedClass($("storageOptions"), storage, x);
+      update();
+    });
+    setSelectedClass($("storageOptions"), storage, selStorage);
+  }
+
+  // Initial per-color storage rules + first render
+  applyStorageAvailabilityForColor();
+  setSelectedClass($("storageOptions"), storage, selStorage);
+  update();
+})();
+</script>

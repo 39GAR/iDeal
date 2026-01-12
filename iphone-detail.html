@@ -1,0 +1,288 @@
+---
+layout: default
+title: iPhone Details
+permalink: /iphone-detail/
+---
+
+
+<section class="pdp">
+  <div class="pdp__inner">
+    <div class="pdp__gallery">
+      <div class="media-frame media-frame--square">
+        <img id="pdpImage" class="media-frame__img" alt="" />
+      </div>
+      <div id="pdpDots" class="pdp__dots"></div>
+    </div>
+
+
+
+
+    <div class="pdp__info">
+      <p class="pdp__eyebrow reveal">iPhone</p>
+      <h1 id="pdpTitle" class="pdp__title reveal"></h1>
+
+      <div class="pdp__priceRow reveal">
+        <span class="pdp__priceLabel">Starting from</span>
+        <span id="pdpPrice" class="pdp__price"></span>
+      </div>
+
+      <!-- Color -->
+      <div id="colorBlock" class="pdp__block reveal" hidden>
+        <div class="pdp__blockHead">
+          <h2 class="pdp__blockTitle">Color</h2>
+          <span id="pdpColorName" class="pdp__muted"></span>
+        </div>
+        <div id="colorOptions" class="pdp__options"></div>
+      </div>
+
+      <!-- Storage -->
+      <div id="storageBlock" class="pdp__block reveal" hidden>
+        <div class="pdp__blockHead">
+          <h2 class="pdp__blockTitle">Storage</h2>
+          <span id="pdpStorageName" class="pdp__muted"></span>
+        </div>
+        <div id="storageOptions" class="pdp__options"></div>
+      </div>
+
+      <div class="pdp__ctaRow reveal">
+        <a id="pdpBuy" class="pdp__btn" href="{{ '/checkout' | relative_url }}">Checkout</a>
+        <p class="pdp__note">Secure checkout with Apple Pay, PayPal, or Bank Card.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(() => {
+  const fmt = new Intl.NumberFormat("en-ZA", {
+    style: "currency",
+    currency: "ZAR",
+    maximumFractionDigits: 0
+  });
+
+  const $ = (id) => document.getElementById(id);
+
+  // Elements
+  const imageEl = $("pdpImage");
+  const dotsEl  = $("pdpDots");
+  const titleEl = $("pdpTitle");
+  const priceEl = $("pdpPrice");
+  const buyEl   = $("pdpBuy");
+
+  const colorBlock   = $("colorBlock");
+  const colorOptions = $("colorOptions");
+  const colorName    = $("pdpColorName");
+
+  const storageBlock   = $("storageBlock");
+  const storageOptions = $("storageOptions");
+  const storageName    = $("pdpStorageName");
+
+  // Find product by slug (?item=...)
+  const slug = (new URLSearchParams(location.search).get("item") || "").trim();
+  const iphones = window.IDEAL_IPHONES || [];
+  const phone = iphones.find(p => p.slug === slug);
+
+  if (!phone) {
+    if (titleEl) titleEl.textContent = "iPhone not found";
+    if (priceEl) priceEl.textContent = "";
+    return;
+  }
+
+  const settings = phone.settings || {};
+  const colors   = Array.isArray(phone.colors) ? phone.colors : [];
+  const storage  = Array.isArray(phone.storage) ? phone.storage : [];
+
+  const firstAvailable = (arr) => arr.find(x => x && x.available !== false) || arr[0] || null;
+
+  let selectedColor   = firstAvailable(colors);
+  let selectedStorage = firstAvailable(storage);
+
+  // ===== Gallery (manual dots) =====
+  let gallery = [];
+  let galleryIndex = 0;
+
+  const getGallery = () => {
+    if (selectedColor && Array.isArray(selectedColor.images) && selectedColor.images.length) {
+      return selectedColor.images;
+    }
+    if (selectedColor && typeof selectedColor.image === "string" && selectedColor.image) {
+      return [selectedColor.image];
+    }
+    if (typeof phone.image === "string" && phone.image) {
+      return [phone.image];
+    }
+    return [];
+  };
+
+  const setGalleryIndex = (i) => {
+    if (!gallery.length || !imageEl) return;
+
+    galleryIndex = (i + gallery.length) % gallery.length;
+    imageEl.src = gallery[galleryIndex] || "";
+    imageEl.alt = phone.model || "iPhone";
+
+    if (dotsEl) {
+      [...dotsEl.children].forEach((d, idx) => {
+        d.classList.toggle("is-active", idx === galleryIndex);
+      });
+    }
+  };
+
+  const renderDots = () => {
+    if (!dotsEl) return;
+
+    dotsEl.innerHTML = "";
+    if (gallery.length <= 1) return;
+
+    gallery.forEach((_, idx) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "pdp__dot" + (idx === galleryIndex ? " is-active" : "");
+      b.setAttribute("aria-label", `Image ${idx + 1}`);
+      b.addEventListener("click", () => setGalleryIndex(idx));
+      dotsEl.appendChild(b);
+    });
+  };
+
+  // ===== Per-color storage availability =====
+  const applyStorageAvailabilityForColor = () => {
+    if (!storageOptions || !selectedColor) return;
+
+    const allowed = selectedColor.storage_available;
+
+    // No restriction -> enable all that are globally available
+    if (!Array.isArray(allowed) || allowed.length === 0) {
+      [...storageOptions.children].forEach((btn, i) => {
+        const opt = storage[i];
+        const globallyDisabled = (opt?.available === false);
+        btn.disabled = globallyDisabled;
+        btn.classList.toggle("is-disabled", globallyDisabled);
+      });
+      return;
+    }
+
+    // Restriction -> enable only allowed AND globally available
+    [...storageOptions.children].forEach((btn, i) => {
+      const opt = storage[i];
+      if (!opt) return;
+
+      const inAllowed = allowed.includes(opt.id) || allowed.includes(String(opt.id));
+      const globallyOk = opt.available !== false;
+      const ok = inAllowed && globallyOk;
+
+      btn.disabled = !ok;
+      btn.classList.toggle("is-disabled", !ok);
+    });
+
+    // If selected storage not allowed -> pick first allowed
+    const selectedOk =
+      allowed.includes(selectedStorage?.id) ||
+      allowed.includes(String(selectedStorage?.id));
+
+    if (!selectedOk) {
+      const next = storage.find(s =>
+        (allowed.includes(s.id) || allowed.includes(String(s.id))) && s.available !== false
+      );
+      if (next) selectedStorage = next;
+    }
+  };
+
+  // ===== Price =====
+  const computePrice = () => {
+    const base = Number(phone.base_price || 0);
+    const c = Number(selectedColor?.price_delta || 0);
+    const s = Number(selectedStorage?.price_delta || 0);
+    return base + c + s;
+  };
+
+  // ===== UI update =====
+  const updateUI = () => {
+    if (titleEl) titleEl.textContent = phone.model || "iPhone";
+    if (priceEl) priceEl.textContent = fmt.format(computePrice());
+
+    if (colorName) colorName.textContent = selectedColor?.name || "";
+    if (storageName) storageName.textContent = selectedStorage?.label || "";
+
+    // Refresh gallery for selected color
+    gallery = getGallery();
+    galleryIndex = 0;
+    renderDots();
+    setGalleryIndex(0);
+
+    // Pass selection to checkout
+    if (buyEl) {
+      const q = new URLSearchParams();
+      q.set("item", phone.slug);
+      if (selectedColor?.id) q.set("color", selectedColor.id);
+      if (selectedStorage?.id) q.set("storage", selectedStorage.id);
+      buyEl.href = "{{ '/checkout' | relative_url }}" + "?" + q.toString();
+    }
+  };
+
+  // ===== Option rendering =====
+  const renderOptions = (root, options, getLabel, onPick) => {
+    if (!root) return;
+    root.innerHTML = "";
+
+    options.forEach((opt) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "pdp__opt";
+      btn.textContent = getLabel(opt);
+
+      if (opt?.available === false) {
+        btn.classList.add("is-disabled");
+        btn.disabled = true;
+      }
+
+      btn.addEventListener("click", () => onPick(opt));
+      root.appendChild(btn);
+    });
+  };
+
+  const setSelectedClass = (root, options, selected) => {
+    if (!root) return;
+    [...root.children].forEach((el, i) => {
+      el.classList.toggle("is-selected", options[i] === selected);
+    });
+  };
+
+  // ===== Show blocks based on settings =====
+  const showColors  = settings.enable_colors !== false && colors.length;
+  const showStorage = settings.enable_storage !== false && storage.length;
+
+  if (showColors) {
+    if (colorBlock) colorBlock.hidden = false;
+
+    renderOptions(colorOptions, colors, (c) => c.name, (c) => {
+      selectedColor = c;
+      setSelectedClass(colorOptions, colors, c);
+
+      // update storage availability when color changes
+      applyStorageAvailabilityForColor();
+      setSelectedClass(storageOptions, storage, selectedStorage);
+
+      updateUI();
+    });
+
+    setSelectedClass(colorOptions, colors, selectedColor);
+  }
+
+  if (showStorage) {
+    if (storageBlock) storageBlock.hidden = false;
+
+    renderOptions(storageOptions, storage, (s) => s.label, (s) => {
+      selectedStorage = s;
+      setSelectedClass(storageOptions, storage, s);
+      updateUI();
+    });
+
+    setSelectedClass(storageOptions, storage, selectedStorage);
+  }
+
+  // Initial per-color storage rules + render
+  applyStorageAvailabilityForColor();
+  setSelectedClass(storageOptions, storage, selectedStorage);
+  updateUI();
+})();
+</script>

@@ -1,0 +1,151 @@
+# =========================
+# Apple Watch Series 10
+# =========================
+- slug: apple-watch-series-10
+  model: Apple Watch Series 10
+  price: "From R—"
+  base_price: 0
+  image: "https://your-cloudinary/watch-s10.png"
+  link: "/checkout"
+
+  settings:
+    enable_size: true
+    enable_connectivity: true
+    enable_band: true
+
+  size:
+    - id: 41
+      label: 41mm
+      image: "https://your-cloudinary/watch-s10-41.png"
+      price_delta: 0
+      available: true
+
+    - id: 45
+      label: 45mm
+      image: "https://your-cloudinary/watch-s10-45.png"
+      price_delta: 0
+      available: true
+
+  connectivity:
+    - id: gps
+      label: GPS
+      price_delta: 0
+      available: true
+
+    - id: cellular
+      label: GPS + Cellular
+      price_delta: 0
+      available: true
+
+  band:
+    - id: sport-black
+      label: Sport Band — Black
+      image: "https://your-cloudinary/watch-s10-band-black.png"
+      price_delta: 0
+      available: true
+
+    - id: sport-blue
+      label: Sport Band — Blue
+      image: "https://your-cloudinary/watch-s10-band-blue.png"
+      price_delta: 0
+      available: true
+
+    - id: sport-red
+      label: Sport Band — Red
+      image: "https://your-cloudinary/watch-s10-band-red.png"
+      price_delta: 0
+      available: true
+
+
+# =========================
+# Apple Watch Ultra 2
+# =========================
+- slug: apple-watch-ultra-2
+  model: Apple Watch Ultra 2
+  price: "From R—"
+  base_price: 0
+  image: "https://your-cloudinary/watch-ultra-2.png"
+  link: "/checkout"
+
+  settings:
+    enable_size: false
+    enable_connectivity: false
+    enable_band: true
+
+  band:
+    - id: ocean-blue
+      label: Ocean Band — Blue
+      image: "https://your-cloudinary/ultra-ocean-blue.png"
+      price_delta: 0
+      available: true
+
+    - id: trail-green
+      label: Trail Loop — Green
+      image: "https://your-cloudinary/ultra-trail-green.png"
+      price_delta: 0
+      available: true
+
+    - id: alpine-orange
+      label: Alpine Loop — Orange
+      image: "https://your-cloudinary/ultra-alpine-orange.png"
+      price_delta: 0
+      available: true
+
+
+# =========================
+# Apple Watch SE
+# =========================
+- slug: apple-watch-se
+  model: Apple Watch SE
+  price: "From R—"
+  base_price: 0
+  image: "https://your-cloudinary/watch-se.png"
+  link: "/checkout"
+
+  settings:
+    enable_size: true
+    enable_connectivity: true
+    enable_band: true
+
+  size:
+    - id: 40
+      label: 40mm
+      image: "https://your-cloudinary/watch-se-40.png"
+      price_delta: 0
+      available: true
+
+    - id: 44
+      label: 44mm
+      image: "https://your-cloudinary/watch-se-44.png"
+      price_delta: 0
+      available: true
+
+  connectivity:
+    - id: gps
+      label: GPS
+      price_delta: 0
+      available: true
+
+    - id: cellular
+      label: GPS + Cellular
+      price_delta: 0
+      available: true
+
+  band:
+    - id: sport-midnight
+      label: Sport Band — Midnight
+      image: "https://your-cloudinary/watch-se-band-midnight.png"
+      price_delta: 0
+      available: true
+
+    - id: sport-starlight
+      label: Sport Band — Starlight
+      image: "https://your-cloudinary/watch-se-band-starlight.png"
+      price_delta: 0
+      available: true
+
+    - id: sport-silver
+      label: Sport Band — Silver
+      image: "https://your-cloudinary/watch-se-band-silver.png"
+      price_delta: 0
+      available: true

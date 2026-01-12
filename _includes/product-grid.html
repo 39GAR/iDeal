@@ -1,0 +1,37 @@
+<section class="catalog-page">
+  <div class="catalog-page__inner">
+
+    {% if include.intro %}
+      <p class="catalog-page__intro reveal">{{ include.intro }}</p>
+    {% endif %}
+
+    <div class="payment-note reveal">
+      <span>Secure checkout with</span>
+      <strong>Apple Pay</strong>, <strong>PayPal</strong> or <strong>Bank Card</strong>.
+    </div>
+
+    <div class="catalog-grid">
+      {% for item in include.items %}
+        <article class="catalog-card reveal" style="--d: {{ forloop.index0 | times: 70 }}ms;">
+          <div class="catalog-card__media">
+            <img src="{{ item.image }}" alt="{{ item.model }}" loading="lazy" decoding="async">
+          </div>
+
+          <div class="catalog-card__body">
+            <h3 class="catalog-card__title">{{ item.model }}</h3>
+
+            <div class="catalog-card__price">
+              {% if item.price %}{{ item.price }}{% elsif item.base_price %}From R{{ item.base_price }}{% endif %}
+            </div>
+
+            <a class="catalog-card__btn"
+               href="{{ include.detail_url | relative_url }}?item={{ item.slug }}">
+              Buy securely
+            </a>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>

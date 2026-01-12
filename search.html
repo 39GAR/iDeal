@@ -1,0 +1,68 @@
+---
+layout: default
+title: Search
+---
+
+<section class="catalog-page">
+  <div class="catalog-page__inner">
+    <h1 class="reveal" style="margin:0 0 10px;">Search</h1>
+    <p class="reveal" id="searchMeta" style="margin:0 0 22px; color:rgba(0,0,0,0.62);"></p>
+
+    <div class="catalog-grid" id="searchResults"></div>
+
+    <p id="searchEmpty" style="display:none; margin-top:18px; color:rgba(0,0,0,0.62);">
+      No results found.
+    </p>
+  </div>
+</section>
+
+<script>
+(() => {
+  const params = new URLSearchParams(location.search);
+  const q = (params.get("q") || "").trim().toLowerCase();
+
+  const meta = document.getElementById("searchMeta");
+  const resultsEl = document.getElementById("searchResults");
+  const emptyEl = document.getElementById("searchEmpty");
+
+  if (meta) meta.textContent = q ? `Results for “${params.get("q")}”` : "Type something to search.";
+
+  // Products from your Jekyll data (embedded at build-time)
+  const products = [
+    ...(window.IDEAL_IPHONES || []),
+    ...(window.IDEAL_MACS || []),
+    ...(window.IDEAL_IPADS || []),
+    ...(window.IDEAL_WATCHES || []),
+  ];
+
+  if (!q) { emptyEl.style.display = "none"; return; }
+
+  const hits = products.filter(p => {
+    const hay = `${p.model} ${p.slug}`.toLowerCase();
+    return hay.includes(q);
+  });
+
+  if (!hits.length) {
+    emptyEl.style.display = "block";
+    return;
+  }
+
+  resultsEl.innerHTML = hits.map((p, i) => `
+    <article class="catalog-card reveal" style="--d:${i*70}ms;">
+      <div class="catalog-card__media">
+        <img src="${p.image}" alt="${p.model}" loading="lazy" decoding="async">
+      </div>
+      <div class="catalog-card__body">
+        <h3 class="catalog-card__title">${p.model}</h3>
+        <div class="catalog-card__price">${p.price}</div>
+        <a class="catalog-card__btn" href="${p.link}?item=${p.slug}">Buy securely</a>
+      </div>
+    </article>
+  `).join("");
+
+  // trigger reveal animation for dynamically inserted cards
+  requestAnimationFrame(() => {
+    document.querySelectorAll(".reveal").forEach(el => el.classList.add("is-visible"));
+  });
+})();
+</script>

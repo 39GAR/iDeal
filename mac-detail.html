@@ -1,0 +1,311 @@
+---
+layout: default
+title: Mac Details
+permalink: /mac-detail/
+---
+
+<section class="pdp">
+  <div class="pdp__inner">
+    <div class="pdp__gallery">
+      <div class="media-frame media-frame--wide">
+        <img id="pdpImage" class="media-frame__img" alt="" />
+      </div>
+      <div id="pdpDots" class="pdp__dots"></div>
+    </div>
+
+    <div class="pdp__info">
+      <p class="pdp__eyebrow reveal">Mac</p>
+      <h1 id="pdpTitle" class="pdp__title reveal"></h1>
+
+      <div class="pdp__priceRow reveal">
+        <span class="pdp__priceLabel">Starting from</span>
+        <span id="pdpPrice" class="pdp__price"></span>
+      </div>
+
+      <!-- Finish -->
+      <div id="finishBlock" class="pdp__block reveal" hidden>
+        <div class="pdp__blockHead">
+          <h2 class="pdp__blockTitle">Finish</h2>
+          <span id="pdpFinishName" class="pdp__muted"></span>
+        </div>
+        <div id="finishOptions" class="pdp__options"></div>
+      </div>
+
+      <!-- RAM -->
+      <div id="ramBlock" class="pdp__block reveal" hidden>
+        <div class="pdp__blockHead">
+          <h2 class="pdp__blockTitle">Memory</h2>
+          <span id="pdpRamName" class="pdp__muted"></span>
+        </div>
+        <div id="ramOptions" class="pdp__options"></div>
+      </div>
+
+      <!-- Storage -->
+      <div id="storageBlock" class="pdp__block reveal" hidden>
+        <div class="pdp__blockHead">
+          <h2 class="pdp__blockTitle">Storage</h2>
+          <span id="pdpStorageName" class="pdp__muted"></span>
+        </div>
+        <div id="storageOptions" class="pdp__options"></div>
+      </div>
+
+      <div class="pdp__ctaRow reveal">
+        <a id="pdpBuy" class="pdp__btn" href="{{ '/checkout' | relative_url }}">Checkout</a>
+        <p class="pdp__note">Secure checkout with Apple Pay, PayPal, or Bank Card.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(() => {
+  const fmt = new Intl.NumberFormat("en-ZA", {
+    style: "currency",
+    currency: "ZAR",
+    maximumFractionDigits: 0
+  });
+
+  const $ = (id) => document.getElementById(id);
+
+  const slug = (new URLSearchParams(location.search).get("item") || "").trim();
+
+  const macs = window.IDEAL_MACS || [];
+  const product = macs.find(p => p.slug === slug);
+
+  const titleEl = $("pdpTitle");
+  const priceEl = $("pdpPrice");
+  const imageEl = $("pdpImage");
+  const dotsEl  = $("pdpDots");
+  const buyEl   = $("pdpBuy");
+
+  if (!product) {
+    if (titleEl) titleEl.textContent = "Mac not found";
+    if (priceEl) priceEl.textContent = "";
+    return;
+  }
+
+  const settings = product.settings || {};
+  const finish  = Array.isArray(product.finish) ? product.finish : [];
+  const ram     = Array.isArray(product.ram) ? product.ram : [];
+  const storage = Array.isArray(product.storage) ? product.storage : [];
+
+  const firstAvail = (arr) => arr.find(x => x && x.available !== false) || arr[0] || null;
+
+  let selFinish  = firstAvail(finish);
+  let selRam     = firstAvail(ram);
+  let selStorage = firstAvail(storage);
+
+  // ===== Gallery (manual dots) =====
+  let gallery = [];
+  let galleryIndex = 0;
+
+  const getGallery = () => {
+    if (selFinish && Array.isArray(selFinish.images) && selFinish.images.length) {
+      return selFinish.images;
+    }
+    if (selFinish && typeof selFinish.image === "string" && selFinish.image) {
+      return [selFinish.image];
+    }
+    if (typeof product.image === "string" && product.image) {
+      return [product.image];
+    }
+    return [];
+  };
+
+  const setGalleryIndex = (i) => {
+    if (!gallery.length || !imageEl) return;
+
+    galleryIndex = (i + gallery.length) % gallery.length;
+    imageEl.src = gallery[galleryIndex] || "";
+    imageEl.alt = product.model || "Mac";
+
+    if (dotsEl) {
+      [...dotsEl.children].forEach((d, idx) => {
+        d.classList.toggle("is-active", idx === galleryIndex);
+      });
+    }
+  };
+
+  const renderDots = () => {
+    if (!dotsEl) return;
+
+    dotsEl.innerHTML = "";
+    if (gallery.length <= 1) return;
+
+    gallery.forEach((_, idx) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "pdp__dot" + (idx === galleryIndex ? " is-active" : "");
+      b.setAttribute("aria-label", `Image ${idx + 1}`);
+      b.addEventListener("click", () => setGalleryIndex(idx));
+      dotsEl.appendChild(b);
+    });
+  };
+
+  // ===== Per-finish storage availability =====
+  // Put this in YAML per finish if needed:
+  // storage_available: [256, 512, "1tb"]
+  const applyStorageAvailabilityForFinish = () => {
+    const root = $("storageOptions");
+    if (!root || !selFinish) return;
+
+    const allowed = selFinish.storage_available;
+
+    // No restriction -> enable all globally available
+    if (!Array.isArray(allowed) || allowed.length === 0) {
+      [...root.children].forEach((btn, i) => {
+        const opt = storage[i];
+        const globallyDisabled = (opt?.available === false);
+        btn.disabled = globallyDisabled;
+        btn.classList.toggle("is-disabled", globallyDisabled);
+      });
+      return;
+    }
+
+    // Restriction -> allowed AND globally available
+    [...root.children].forEach((btn, i) => {
+      const opt = storage[i];
+      if (!opt) return;
+
+      const inAllowed = allowed.includes(opt.id) || allowed.includes(String(opt.id));
+      const globallyOk = opt.available !== false;
+      const ok = inAllowed && globallyOk;
+
+      btn.disabled = !ok;
+      btn.classList.toggle("is-disabled", !ok);
+    });
+
+    // If selected storage not allowed -> pick first allowed
+    const selectedOk =
+      allowed.includes(selStorage?.id) ||
+      allowed.includes(String(selStorage?.id));
+
+    if (!selectedOk) {
+      const next = storage.find(s =>
+        (allowed.includes(s.id) || allowed.includes(String(s.id))) && s.available !== false
+      );
+      if (next) selStorage = next;
+    }
+  };
+
+  // ===== Price =====
+  const compute = () => {
+    const base = Number(product.base_price || 0);
+    const f = Number(selFinish?.price_delta || 0);
+    const r = Number(selRam?.price_delta || 0);
+    const s = Number(selStorage?.price_delta || 0);
+    return base + f + r + s;
+  };
+
+  // ===== Helpers =====
+  const setSelectedClass = (root, list, selected) => {
+    if (!root) return;
+    [...root.children].forEach((el, i) => {
+      el.classList.toggle("is-selected", list[i] === selected);
+    });
+  };
+
+  const renderOptions = (root, list, labelFn, onPick) => {
+    if (!root) return;
+    root.innerHTML = "";
+
+    list.forEach(opt => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "pdp__opt";
+      b.textContent = labelFn(opt);
+
+      if (opt?.available === false) {
+        b.classList.add("is-disabled");
+        b.disabled = true;
+      }
+
+      b.addEventListener("click", () => onPick(opt));
+      root.appendChild(b);
+    });
+  };
+
+  // ===== UI update =====
+  const update = () => {
+    if (titleEl) titleEl.textContent = product.model || "Mac";
+    if (priceEl) priceEl.textContent = fmt.format(compute());
+
+    if ($("pdpFinishName")) $("pdpFinishName").textContent = selFinish?.name || "";
+    if ($("pdpRamName")) $("pdpRamName").textContent = selRam?.label || "";
+    if ($("pdpStorageName")) $("pdpStorageName").textContent = selStorage?.label || "";
+
+    // Refresh gallery for selected finish
+    gallery = getGallery();
+    galleryIndex = 0;
+    renderDots();
+    setGalleryIndex(0);
+
+    // Checkout URL with selection
+    if (buyEl) {
+      const q = new URLSearchParams();
+      q.set("item", product.slug);
+      if (selFinish?.id) q.set("finish", selFinish.id);
+      if (selRam?.id) q.set("ram", selRam.id);
+      if (selStorage?.id) q.set("storage", selStorage.id);
+      buyEl.href = "{{ '/checkout' | relative_url }}" + "?" + q.toString();
+    }
+  };
+
+  // ===== Blocks =====
+  const showFinish  = settings.enable_finish !== false && finish.length;
+  const showRam     = settings.enable_ram !== false && ram.length;
+  const showStorage = settings.enable_storage !== false && storage.length;
+
+  if (showFinish) {
+    const block = $("finishBlock");
+    const root  = $("finishOptions");
+    if (block) block.hidden = false;
+
+    renderOptions(root, finish, x => x.name, (x) => {
+      selFinish = x;
+      setSelectedClass(root, finish, x);
+
+      // update storage rules when finish changes
+      applyStorageAvailabilityForFinish();
+      setSelectedClass($("storageOptions"), storage, selStorage);
+
+      update();
+    });
+
+    setSelectedClass(root, finish, selFinish);
+  }
+
+  if (showRam) {
+    const block = $("ramBlock");
+    const root  = $("ramOptions");
+    if (block) block.hidden = false;
+
+    renderOptions(root, ram, x => x.label, (x) => {
+      selRam = x;
+      setSelectedClass(root, ram, x);
+      update();
+    });
+
+    setSelectedClass(root, ram, selRam);
+  }
+
+  if (showStorage) {
+    const block = $("storageBlock");
+    const root  = $("storageOptions");
+    if (block) block.hidden = false;
+
+    renderOptions(root, storage, x => x.label, (x) => {
+      selStorage = x;
+      setSelectedClass(root, storage, x);
+      update();
+    });
+
+    setSelectedClass(root, storage, selStorage);
+  }
+
+  // Initial storage restriction + first render
+  applyStorageAvailabilityForFinish();
+  setSelectedClass($("storageOptions"), storage, selStorage);
+  update();
+})();
+</script>

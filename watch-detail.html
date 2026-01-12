@@ -1,0 +1,161 @@
+---
+layout: default
+title: Watch Details
+permalink: /watch-detail/
+---
+
+<section class="pdp">
+  <div class="pdp__inner">
+    <div class="pdp__gallery">
+      <div class="media-frame media-frame--square">
+        <img id="pdpImage" class="media-frame__img" alt="" />
+      </div>
+      <div id="pdpDots" class="pdp__dots"></div>
+    </div>
+
+    <div class="pdp__info">
+      <p class="pdp__eyebrow reveal">Watch</p>
+      <h1 id="pdpTitle" class="pdp__title reveal"></h1>
+
+      <div class="pdp__priceRow reveal">
+        <span class="pdp__priceLabel">Starting from</span>
+        <span id="pdpPrice" class="pdp__price"></span>
+      </div>
+
+      <!-- Size -->
+      <div id="sizeBlock" class="pdp__block reveal" hidden>
+        <div class="pdp__blockHead">
+          <h2 class="pdp__blockTitle">Size</h2>
+          <span id="pdpSizeName" class="pdp__muted"></span>
+        </div>
+        <div id="sizeOptions" class="pdp__options"></div>
+      </div>
+
+      <!-- Connectivity -->
+      <div id="connBlock" class="pdp__block reveal" hidden>
+        <div class="pdp__blockHead">
+          <h2 class="pdp__blockTitle">Connectivity</h2>
+          <span id="pdpConnName" class="pdp__muted"></span>
+        </div>
+        <div id="connOptions" class="pdp__options"></div>
+      </div>
+
+      <!-- Band -->
+      <div id="bandBlock" class="pdp__block reveal" hidden>
+        <div class="pdp__blockHead">
+          <h2 class="pdp__blockTitle">Band</h2>
+          <span id="pdpBandName" class="pdp__muted"></span>
+        </div>
+        <div id="bandOptions" class="pdp__options"></div>
+      </div>
+
+      <div class="pdp__ctaRow reveal">
+        <a id="pdpBuy" class="pdp__btn" href="{{ '/checkout' | relative_url }}">Checkout</a>
+        <p class="pdp__note">Secure checkout with Apple Pay, PayPal, or Bank Card.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(() => {
+  const fmt = new Intl.NumberFormat("en-ZA", { style:"currency", currency:"ZAR", maximumFractionDigits:0 });
+  const $ = (id) => document.getElementById(id);
+
+  const slug = (new URLSearchParams(location.search).get("item") || "").trim();
+  const items = window.IDEAL_WATCHES || [];
+  const product = items.find(p => p.slug === slug);
+
+  if (!product) {
+    $("pdpTitle").textContent = "Watch not found";
+    return;
+  }
+
+  const settings = product.settings || {};
+  const size = Array.isArray(product.size) ? product.size : [];
+  const connectivity = Array.isArray(product.connectivity) ? product.connectivity : [];
+  const band = Array.isArray(product.band) ? product.band : [];
+
+  const firstAvail = (arr) => arr.find(x => x && x.available !== false) || arr[0] || null;
+
+  let selSize = firstAvail(size);
+  let selConn = firstAvail(connectivity);
+  let selBand = firstAvail(band);
+
+  const compute = () => {
+    const base = Number(product.base_price || 0);
+    return base
+      + Number(selSize?.price_delta || 0)
+      + Number(selConn?.price_delta || 0)
+      + Number(selBand?.price_delta || 0);
+  };
+
+  const setSelected = (root, list, selected) => {
+    [...root.children].forEach((el, i) => el.classList.toggle("is-selected", list[i] === selected));
+  };
+
+  const render = (root, list, labelFn, onPick) => {
+    root.innerHTML = "";
+    list.forEach(opt => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "pdp__opt";
+      b.textContent = labelFn(opt);
+
+      if (opt?.available === false) {
+        b.classList.add("is-disabled");
+        b.disabled = true;
+      }
+
+      b.addEventListener("click", () => onPick(opt));
+      root.appendChild(b);
+    });
+  };
+
+  const update = () => {
+    $("pdpTitle").textContent = product.model || "Watch";
+    $("pdpPrice").textContent = fmt.format(compute());
+
+    // image priority: band image -> size image -> product image
+    const img = selBand?.image || selSize?.image || product.image || "";
+    $("pdpImage").src = img;
+    $("pdpImage").alt = product.model || "Watch";
+
+    $("pdpSizeName").textContent = selSize?.label || "";
+    $("pdpConnName").textContent = selConn?.label || "";
+    $("pdpBandName").textContent = selBand?.label || "";
+
+    const q = new URLSearchParams();
+    q.set("item", product.slug);
+    if (selSize?.id) q.set("size", selSize.id);
+    if (selConn?.id) q.set("conn", selConn.id);
+    if (selBand?.id) q.set("band", selBand.id);
+
+    $("pdpBuy").href = "{{ '/checkout' | relative_url }}" + "?" + q.toString();
+  };
+
+  const showSize = settings.enable_size !== false && size.length;
+  const showConn = settings.enable_connectivity !== false && connectivity.length;
+  const showBand = settings.enable_band !== false && band.length;
+
+  if (showSize) {
+    $("sizeBlock").hidden = false;
+    render($("sizeOptions"), size, x => x.label, (x) => { selSize = x; setSelected($("sizeOptions"), size, x); update(); });
+    setSelected($("sizeOptions"), size, selSize);
+  }
+
+  if (showConn) {
+    $("connBlock").hidden = false;
+    render($("connOptions"), connectivity, x => x.label, (x) => { selConn = x; setSelected($("connOptions"), connectivity, x); update(); });
+    setSelected($("connOptions"), connectivity, selConn);
+  }
+
+  if (showBand) {
+    $("bandBlock").hidden = false;
+    render($("bandOptions"), band, x => x.label, (x) => { selBand = x; setSelected($("bandOptions"), band, x); update(); });
+    setSelected($("bandOptions"), band, selBand);
+  }
+
+  update();
+})();
+</script>

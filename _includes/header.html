@@ -1,14 +1,23 @@
 <header class="ideal-nav" role="banner">
   <div class="ideal-nav__inner">
     <!-- Left: Logo -->
-    <a class="ideal-nav__logo" href="{{ '/' | relative_url }}" aria-label="iDeal Home">
-      <img
-        src="https://res.cloudinary.com/dodevsdjg/image/upload/v1767675363/ideal-logo-transparent_tld1gj.png"
-        alt="iDeal"
-        loading="eager"
-        decoding="async"
-      />
-    </a>
+    <div class="ideal-nav__left">
+  <a class="ideal-nav__homeBtn" href="{{ '/' | relative_url }}" aria-label="Home">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M3 11.5L12 4l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-8.5z"
+        fill="none" stroke="currentColor" stroke-width="1.5"
+        stroke-linejoin="round" stroke-linecap="round"/>
+    </svg>
+  </a>
+
+  <a class="ideal-nav__logo" href="{{ '/' | relative_url }}" aria-label="iDeal Home">
+    <img src="https://res.cloudinary.com/dodevsdjg/image/upload/v1767675363/ideal-logo-transparent_tld1gj.png"
+      alt="iDeal" loading="eager" decoding="async" />
+  </a>
+</div>
+
+
+
 
     <!-- Center: Tabs -->
     <nav class="ideal-nav__menu" aria-label="Primary">
@@ -16,7 +25,7 @@
       <a class="ideal-nav__link" href="{{ '/ipad' | relative_url }}">iPad</a>
       <a class="ideal-nav__link" href="{{ '/iphone' | relative_url }}">iPhone</a>
       <a class="ideal-nav__link" href="{{ '/watch' | relative_url }}">Watch</a>
-      <a class="ideal-nav__link" href="{{ '/support' | relative_url }}">Contacts</a>
+      <!-- <a class="ideal-nav__link" href="{{ '/support' | relative_url }}">Contacts</a> -->
     </nav>
 
     <!-- Right: Search + Toggle -->
@@ -53,16 +62,29 @@
   <div class="ideal-search__backdrop" data-close="search"></div>
 
   <div class="ideal-search__panel" role="dialog" aria-modal="true" aria-label="Search">
-    <div class="ideal-search__top">
+    <form
+      class="ideal-search__top"
+      id="siteSearchForm"
+      action="{{ '/search' | relative_url }}"
+      method="get"
+    >
       <input
         type="search"
         class="ideal-search__input"
+        name="q"
         placeholder="Search iDeal..."
         aria-label="Search"
       />
-      <button class="ideal-search__close" type="button" aria-label="Close search" data-close="search">
+
+      <button
+        class="ideal-search__close"
+        type="button"
+        aria-label="Close search"
+        data-close="search"
+      >
         ✕
       </button>
-    </div>
+    </form>
+
   </div>
 </div>

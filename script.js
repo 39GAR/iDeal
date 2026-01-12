@@ -120,3 +120,44 @@ const yearEl = document.getElementById("idealYear");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 document.documentElement.classList.add('js');
+
+const thumbsEl = document.getElementById("pdpThumbs");
+
+const getGallery = () => {
+  // prefers selected color images, fallback to single images
+  const arr = selColor?.images || [];
+  if (Array.isArray(arr) && arr.length) return arr;
+
+  // fallback to old structure:
+  if (selColor?.image) return [selColor.image];
+  if (product.image) return [product.image];
+  return [];
+};
+
+const renderThumbs = () => {
+  if (!thumbsEl) return;
+
+  const gallery = getGallery();
+  thumbsEl.innerHTML = "";
+
+  if (gallery.length <= 1) return; // don’t show thumbs if only 1 image
+
+  gallery.forEach((src, idx) => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "pdp__thumb" + (idx === 0 ? " is-active" : "");
+    btn.innerHTML = `<img src="${src}" alt="" loading="lazy" decoding="async">`;
+
+    btn.addEventListener("click", () => {
+      // set main image to clicked thumbnail
+      imageEl.src = src;
+      
+
+      // active state
+      [...thumbsEl.children].forEach(x => x.classList.remove("is-active"));
+      btn.classList.add("is-active");
+    });
+
+    thumbsEl.appendChild(btn);
+  });
+};
