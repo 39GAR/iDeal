@@ -1,91 +1,11 @@
 # =========================
 # MacBook Pro M3 Max 16"
 # =========================
-- slug: macbook-pro-m3-max-16
-  model: MacBook Pro 16-inch (M3 Max)
-  base_price: 59999
-
-  settings:
-    enable_colors: true
-    enable_storage: true
-
-  colors:
-    - id: spaceblack
-      name: Space Black
-      image: "https://your-cloudinary/macbook-pro-16-spaceblack.png"
-      price_delta: 0
-      available: true
-
-    - id: silver
-      name: Silver
-      image: "https://your-cloudinary/macbook-pro-16-silver.png"
-      price_delta: 0
-      available: true
-
-  storage:
-    - id: 1tb
-      label: 1TB SSD
-      price_delta: 0
-      available: true
-
-    - id: 2tb
-      label: 2TB SSD
-      price_delta: 6000
-      available: true
-
-    - id: 4tb
-      label: 4TB SSD
-      price_delta: 12000
-      available: false
-
-
-# =========================
-# MacBook Pro M3 Pro 14"
-# =========================
-- slug: macbook-pro-m3-pro-14
-  model: MacBook Pro 14-inch (M3 Pro)
-  base_price: 45999
-
-  settings:
-    enable_colors: true
-    enable_storage: true
-
-  colors:
-    - id: spaceblack
-      name: Space Black
-      image: "https://your-cloudinary/macbook-pro-14-spaceblack.png"
-      price_delta: 0
-      available: true
-
-    - id: silver
-      name: Silver
-      image: "https://your-cloudinary/macbook-pro-14-silver.png"
-      price_delta: 0
-      available: true
-
-  storage:
-    - id: 512
-      label: 512GB SSD
-      price_delta: 0
-      available: true
-
-    - id: 1tb
-      label: 1TB SSD
-      price_delta: 3000
-      available: true
-
-    - id: 2tb
-      label: 2TB SSD
-      price_delta: 7000
-      available: true
-
-
-# =========================
-# MacBook Air M3 13"
-# =========================
-- slug: macbook-air-m3-13
-  model: MacBook Air 13-inch (M3)
-  base_price: 24999
+- slug: macbook-air-m2-max-16
+  model: MacBook air 13-inch (M2 Max)
+  base_price: 16600
+  image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1768238415/air-front_lbiw71.jpg"
+  link: "/checkout"
 
   settings:
     enable_colors: true
@@ -94,31 +14,28 @@
   colors:
     - id: midnight
       name: Midnight
-      image: "https://your-cloudinary/macbook-air-midnight.png"
+      images:
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768238221/midnight-macbook-air-1_yydyhv.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768238295/midnight-macbook-air-4_jltcel.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768238295/midnight-macbook-air-3_wlq43j.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768238284/midnight-macbook-air-2_txgd7r.jpg"
       price_delta: 0
       available: true
 
-    - id: starlight
-      name: Starlight
-      image: "https://your-cloudinary/macbook-air-starlight.png"
-      price_delta: 0
-      available: true
-
-    - id: silver
-      name: Silver
-      image: "https://your-cloudinary/macbook-air-silver.png"
+    - id: grey
+      name: Grey
+      images:
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768238322/grey-macbook-air-5_vh91dd.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768238168/grey-macbook-air-1_pmfvuc.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768238193/grey-macbook-air-4_eod7ny.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768238192/grey-macbook-air-3_w9r9se.jpg"
       price_delta: 0
       available: true
 
   storage:
-    - id: 256
-      label: 256GB SSD
-      price_delta: 0
-      available: true
-
     - id: 512
-      label: 512GB SSD
-      price_delta: 2500
+      label: 512GB
+      price_delta: 0
       available: true
 
     - id: 1tb
@@ -126,49 +43,142 @@
       price_delta: 6000
       available: false
 
-
-# =========================
-# iMac M3 24"
-# =========================
-- slug: imac-m3-24
-  model: iMac 24-inch (M3)
-  base_price: 28999
-
-  settings:
-    enable_colors: true
-    enable_storage: true
-
-  colors:
-    - id: blue
-      name: Blue
-      image: "https://your-cloudinary/imac-blue.png"
-      price_delta: 0
-      available: true
-
-    - id: green
-      name: Green
-      image: "https://your-cloudinary/imac-green.png"
-      price_delta: 0
-      available: true
-
-    - id: silver
-      name: Silver
-      image: "https://your-cloudinary/imac-silver.png"
-      price_delta: 0
-      available: true
-
-  storage:
-    - id: 256
-      label: 256GB SSD
-      price_delta: 0
-      available: true
-
-    - id: 512
-      label: 512GB SSD
-      price_delta: 2500
-      available: true
-
-    - id: 1tb
-      label: 1TB SSD
-      price_delta: 6000
+    - id: 2tb
+      label: 2TB SSD
+      price_delta: 12000
       available: false
+
+
+# =========================
+# MacBook Pro M3 Pro 14"
+# =========================
+# - slug: macbook-pro-m3-pro-14
+#   model: MacBook Pro 14-inch (M3 Pro)
+#   base_price: 45999
+#
+#   settings:
+#     enable_colors: true
+#     enable_storage: true
+#
+#   colors:
+#     - id: spaceblack
+#       name: Space Black
+#       image: "https://your-cloudinary/macbook-pro-14-spaceblack.png"
+#       price_delta: 0
+#       available: true
+#
+#     - id: silver
+#       name: Silver
+#       image: "https://your-cloudinary/macbook-pro-14-silver.png"
+#       price_delta: 0
+#       available: true
+#
+#   storage:
+#     - id: 512
+#       label: 512GB SSD
+#       price_delta: 0
+#       available: true
+#
+#     - id: 1tb
+#       label: 1TB SSD
+#       price_delta: 3000
+#       available: true
+#
+#     - id: 2tb
+#       label: 2TB SSD
+#       price_delta: 7000
+#       available: true
+#
+#
+# # =========================
+# # MacBook Air M3 13"
+# # =========================
+# - slug: macbook-air-m3-13
+#   model: MacBook Air 13-inch (M3)
+#   base_price: 24999
+#
+#   settings:
+#     enable_colors: true
+#     enable_storage: true
+#
+#   colors:
+#     - id: midnight
+#       name: Midnight
+#       image: "https://your-cloudinary/macbook-air-midnight.png"
+#       price_delta: 0
+#       available: true
+#
+#     - id: starlight
+#       name: Starlight
+#       image: "https://your-cloudinary/macbook-air-starlight.png"
+#       price_delta: 0
+#       available: true
+#
+#     - id: silver
+#       name: Silver
+#       image: "https://your-cloudinary/macbook-air-silver.png"
+#       price_delta: 0
+#       available: true
+#
+#   storage:
+#     - id: 256
+#       label: 256GB SSD
+#       price_delta: 0
+#       available: true
+#
+#     - id: 512
+#       label: 512GB SSD
+#       price_delta: 2500
+#       available: true
+#
+#     - id: 1tb
+#       label: 1TB SSD
+#       price_delta: 6000
+#       available: false
+#
+#
+# # =========================
+# # iMac M3 24"
+# # =========================
+# - slug: imac-m3-24
+#   model: iMac 24-inch (M3)
+#   base_price: 28999
+#
+#   settings:
+#     enable_colors: true
+#     enable_storage: true
+#
+#   colors:
+#     - id: blue
+#       name: Blue
+#       image: "https://your-cloudinary/imac-blue.png"
+#       price_delta: 0
+#       available: true
+#
+#     - id: green
+#       name: Green
+#       image: "https://your-cloudinary/imac-green.png"
+#       price_delta: 0
+#       available: true
+#
+#     - id: silver
+#       name: Silver
+#       image: "https://your-cloudinary/imac-silver.png"
+#       price_delta: 0
+#       available: true
+#
+#   storage:
+#     - id: 256
+#       label: 256GB SSD
+#       price_delta: 0
+#       available: true
+#
+#     - id: 512
+#       label: 512GB SSD
+#       price_delta: 2500
+#       available: true
+#
+#     - id: 1tb
+#       label: 1TB SSD
+#       price_delta: 6000
+#       available: false

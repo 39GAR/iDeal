@@ -1,10 +1,10 @@
 # =========================
 # iPad Pro (M4) 13-inch
 # =========================
-- slug: ipad-pro-m4-13
-  model: iPad Pro 13-inch (M4)
-  base_price: 0
-  image: "https://your-cloudinary/ipad-pro-13.png"
+- slug: ipad-pro-5th-gen-12.9
+  model: iPad Pro 12.9-inch 5th gen
+  base_price: 16000
+  image: "https://res.cloudinary.com/dodevsdjg/image/upload/v1768241966/silver-ipad-1_ahthbg.jpg"
   link: "/checkout"
 
   settings:
@@ -17,346 +17,348 @@
       name: Space Black
       image: "https://your-cloudinary/ipad-pro-13-space-black.png"
       price_delta: 0
-      available: true
+      available: false
 
     - id: silver
       name: Silver
-      image: "https://your-cloudinary/ipad-pro-13-silver.png"
+      images:
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768241992/silver-ipad-2_ge3010.jpg"
+        - "https://res.cloudinary.com/dodevsdjg/image/upload/v1768241966/silver-ipad-1_ahthbg.jpg"
       price_delta: 0
       available: true
 
-  connectivity:
-    - id: wifi
-      label: Wi-Fi
-      price_delta: 0
-      available: true
-
-    - id: cellular
-      label: Wi-Fi + Cellular
-      price_delta: 0
-      available: true
+  # connectivity:
+  #   - id: wifi
+  #     label: Wi-Fi
+  #     price_delta: 0
+  #     available: true
+  #
+  #   - id: cellular
+  #     label: Wi-Fi + Cellular
+  #     price_delta: 0
+  #     available: true
 
   storage:
-    - id: 256
-      label: 256GB
+    - id: 128
+      label: 128GB
       price_delta: 0
       available: true
 
-    - id: 512
-      label: 512GB
-      price_delta: 0
+    - id: 256
+      label: 256GB
+      price_delta: 700
       available: true
 
     - id: 1tb
       label: 1TB
       price_delta: 0
-      available: true
+      available: false
 
     - id: 2tb
       label: 2TB
       price_delta: 0
-      available: true
+      available: false
 
 
 # =========================
 # iPad Pro (M4) 11-inch
 # =========================
-- slug: ipad-pro-m4-11
-  model: iPad Pro 11-inch (M4)
-  base_price: 0
-  image: "https://your-cloudinary/ipad-pro-11.png"
-  link: "/checkout"
-
-  settings:
-    enable_colors: true
-    enable_storage: true
-    enable_connectivity: true
-
-  colors:
-    - id: space-black
-      name: Space Black
-      image: "https://your-cloudinary/ipad-pro-11-space-black.png"
-      price_delta: 0
-      available: true
-
-    - id: silver
-      name: Silver
-      image: "https://your-cloudinary/ipad-pro-11-silver.png"
-      price_delta: 0
-      available: true
-
-  connectivity:
-    - id: wifi
-      label: Wi-Fi
-      price_delta: 0
-      available: true
-
-    - id: cellular
-      label: Wi-Fi + Cellular
-      price_delta: 0
-      available: true
-
-  storage:
-    - id: 256
-      label: 256GB
-      price_delta: 0
-      available: true
-
-    - id: 512
-      label: 512GB
-      price_delta: 0
-      available: true
-
-    - id: 1tb
-      label: 1TB
-      price_delta: 0
-      available: true
-
-    - id: 2tb
-      label: 2TB
-      price_delta: 0
-      available: true
-
-
-# =========================
-# iPad Air (M2) 13-inch
-# =========================
-- slug: ipad-air-m2-13
-  model: iPad Air 13-inch (M2)
-  base_price: 0
-  image: "https://your-cloudinary/ipad-air-13.png"
-  link: "/checkout"
-
-  settings:
-    enable_colors: true
-    enable_storage: true
-    enable_connectivity: true
-
-  colors:
-    - id: blue
-      name: Blue
-      image: "https://your-cloudinary/ipad-air-13-blue.png"
-      price_delta: 0
-      available: true
-
-    - id: purple
-      name: Purple
-      image: "https://your-cloudinary/ipad-air-13-purple.png"
-      price_delta: 0
-      available: true
-
-    - id: starlight
-      name: Starlight
-      image: "https://your-cloudinary/ipad-air-13-starlight.png"
-      price_delta: 0
-      available: true
-
-  connectivity:
-    - id: wifi
-      label: Wi-Fi
-      price_delta: 0
-      available: true
-
-    - id: cellular
-      label: Wi-Fi + Cellular
-      price_delta: 0
-      available: true
-
-  storage:
-    - id: 128
-      label: 128GB
-      price_delta: 0
-      available: true
-
-    - id: 256
-      label: 256GB
-      price_delta: 0
-      available: true
-
-    - id: 512
-      label: 512GB
-      price_delta: 0
-      available: true
-
-    - id: 1tb
-      label: 1TB
-      price_delta: 0
-      available: true
-
-
-# =========================
-# iPad Air (M2) 11-inch
-# =========================
-- slug: ipad-air-m2-11
-  model: iPad Air 11-inch (M2)
-  base_price: 0
-  image: "https://your-cloudinary/ipad-air-11.png"
-  link: "/checkout"
-
-  settings:
-    enable_colors: true
-    enable_storage: true
-    enable_connectivity: true
-
-  colors:
-    - id: blue
-      name: Blue
-      image: "https://your-cloudinary/ipad-air-11-blue.png"
-      price_delta: 0
-      available: true
-
-    - id: purple
-      name: Purple
-      image: "https://your-cloudinary/ipad-air-11-purple.png"
-      price_delta: 0
-      available: true
-
-    - id: starlight
-      name: Starlight
-      image: "https://your-cloudinary/ipad-air-11-starlight.png"
-      price_delta: 0
-      available: true
-
-  connectivity:
-    - id: wifi
-      label: Wi-Fi
-      price_delta: 0
-      available: true
-
-    - id: cellular
-      label: Wi-Fi + Cellular
-      price_delta: 0
-      available: true
-
-  storage:
-    - id: 128
-      label: 128GB
-      price_delta: 0
-      available: true
-
-    - id: 256
-      label: 256GB
-      price_delta: 0
-      available: true
-
-    - id: 512
-      label: 512GB
-      price_delta: 0
-      available: true
-
-    - id: 1tb
-      label: 1TB
-      price_delta: 0
-      available: true
-
-
-# =========================
-# iPad (10th gen)
-# =========================
-- slug: ipad-10th-gen
-  model: iPad (10th gen)
-  base_price: 0
-  image: "https://your-cloudinary/ipad-10.png"
-  link: "/checkout"
-
-  settings:
-    enable_colors: true
-    enable_storage: true
-    enable_connectivity: true
-
-  colors:
-    - id: blue
-      name: Blue
-      image: "https://your-cloudinary/ipad-10-blue.png"
-      price_delta: 0
-      available: true
-
-    - id: pink
-      name: Pink
-      image: "https://your-cloudinary/ipad-10-pink.png"
-      price_delta: 0
-      available: true
-
-    - id: yellow
-      name: Yellow
-      image: "https://your-cloudinary/ipad-10-yellow.png"
-      price_delta: 0
-      available: true
-
-  connectivity:
-    - id: wifi
-      label: Wi-Fi
-      price_delta: 0
-      available: true
-
-    - id: cellular
-      label: Wi-Fi + Cellular
-      price_delta: 0
-      available: true
-
-  storage:
-    - id: 64
-      label: 64GB
-      price_delta: 0
-      available: true
-
-    - id: 256
-      label: 256GB
-      price_delta: 0
-      available: true
-
-
-# =========================
-# iPad mini (6th gen)
-# =========================
-- slug: ipad-mini-6
-  model: iPad mini (6th gen)
-  base_price: 0
-  image: "https://your-cloudinary/ipad-mini.png"
-  link: "/checkout"
-
-  settings:
-    enable_colors: true
-    enable_storage: true
-    enable_connectivity: true
-
-  colors:
-    - id: space-gray
-      name: Space Gray
-      image: "https://your-cloudinary/ipad-mini-space-gray.png"
-      price_delta: 0
-      available: true
-
-    - id: starlight
-      name: Starlight
-      image: "https://your-cloudinary/ipad-mini-starlight.png"
-      price_delta: 0
-      available: true
-
-    - id: purple
-      name: Purple
-      image: "https://your-cloudinary/ipad-mini-purple.png"
-      price_delta: 0
-      available: true
-
-  connectivity:
-    - id: wifi
-      label: Wi-Fi
-      price_delta: 0
-      available: true
-
-    - id: cellular
-      label: Wi-Fi + Cellular
-      price_delta: 0
-      available: true
-
-  storage:
-    - id: 64
-      label: 64GB
-      price_delta: 0
-      available: true
-
-    - id: 256
-      label: 256GB
-      price_delta: 0
-      available: true
+# - slug: ipad-pro-m4-11
+#   model: iPad Pro 11-inch (M4)
+#   base_price: 0
+#   image: "https://your-cloudinary/ipad-pro-11.png"
+#   link: "/checkout"
+#
+#   settings:
+#     enable_colors: true
+#     enable_storage: true
+#     enable_connectivity: true
+#
+#   colors:
+#     - id: space-black
+#       name: Space Black
+#       image: "https://your-cloudinary/ipad-pro-11-space-black.png"
+#       price_delta: 0
+#       available: true
+#
+#     - id: silver
+#       name: Silver
+#       image: "https://your-cloudinary/ipad-pro-11-silver.png"
+#       price_delta: 0
+#       available: true
+#
+#   connectivity:
+#     - id: wifi
+#       label: Wi-Fi
+#       price_delta: 0
+#       available: true
+#
+#     - id: cellular
+#       label: Wi-Fi + Cellular
+#       price_delta: 0
+#       available: true
+#
+#   storage:
+#     - id: 256
+#       label: 256GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 512
+#       label: 512GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 1tb
+#       label: 1TB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 2tb
+#       label: 2TB
+#       price_delta: 0
+#       available: true
+#
+#
+# # =========================
+# # iPad Air (M2) 13-inch
+# # =========================
+# - slug: ipad-air-m2-13
+#   model: iPad Air 13-inch (M2)
+#   base_price: 0
+#   image: "https://your-cloudinary/ipad-air-13.png"
+#   link: "/checkout"
+#
+#   settings:
+#     enable_colors: true
+#     enable_storage: true
+#     enable_connectivity: true
+#
+#   colors:
+#     - id: blue
+#       name: Blue
+#       image: "https://your-cloudinary/ipad-air-13-blue.png"
+#       price_delta: 0
+#       available: true
+#
+#     - id: purple
+#       name: Purple
+#       image: "https://your-cloudinary/ipad-air-13-purple.png"
+#       price_delta: 0
+#       available: true
+#
+#     - id: starlight
+#       name: Starlight
+#       image: "https://your-cloudinary/ipad-air-13-starlight.png"
+#       price_delta: 0
+#       available: true
+#
+#   connectivity:
+#     - id: wifi
+#       label: Wi-Fi
+#       price_delta: 0
+#       available: true
+#
+#     - id: cellular
+#       label: Wi-Fi + Cellular
+#       price_delta: 0
+#       available: true
+#
+#   storage:
+#     - id: 128
+#       label: 128GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 256
+#       label: 256GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 512
+#       label: 512GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 1tb
+#       label: 1TB
+#       price_delta: 0
+#       available: true
+#
+#
+# # =========================
+# # iPad Air (M2) 11-inch
+# # =========================
+# - slug: ipad-air-m2-11
+#   model: iPad Air 11-inch (M2)
+#   base_price: 0
+#   image: "https://your-cloudinary/ipad-air-11.png"
+#   link: "/checkout"
+#
+#   settings:
+#     enable_colors: true
+#     enable_storage: true
+#     enable_connectivity: true
+#
+#   colors:
+#     - id: blue
+#       name: Blue
+#       image: "https://your-cloudinary/ipad-air-11-blue.png"
+#       price_delta: 0
+#       available: true
+#
+#     - id: purple
+#       name: Purple
+#       image: "https://your-cloudinary/ipad-air-11-purple.png"
+#       price_delta: 0
+#       available: true
+#
+#     - id: starlight
+#       name: Starlight
+#       image: "https://your-cloudinary/ipad-air-11-starlight.png"
+#       price_delta: 0
+#       available: true
+#
+#   connectivity:
+#     - id: wifi
+#       label: Wi-Fi
+#       price_delta: 0
+#       available: true
+#
+#     - id: cellular
+#       label: Wi-Fi + Cellular
+#       price_delta: 0
+#       available: true
+#
+#   storage:
+#     - id: 128
+#       label: 128GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 256
+#       label: 256GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 512
+#       label: 512GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 1tb
+#       label: 1TB
+#       price_delta: 0
+#       available: true
+#
+#
+# # =========================
+# # iPad (10th gen)
+# # =========================
+# - slug: ipad-10th-gen
+#   model: iPad (10th gen)
+#   base_price: 0
+#   image: "https://your-cloudinary/ipad-10.png"
+#   link: "/checkout"
+#
+#   settings:
+#     enable_colors: true
+#     enable_storage: true
+#     enable_connectivity: true
+#
+#   colors:
+#     - id: blue
+#       name: Blue
+#       image: "https://your-cloudinary/ipad-10-blue.png"
+#       price_delta: 0
+#       available: true
+#
+#     - id: pink
+#       name: Pink
+#       image: "https://your-cloudinary/ipad-10-pink.png"
+#       price_delta: 0
+#       available: true
+#
+#     - id: yellow
+#       name: Yellow
+#       image: "https://your-cloudinary/ipad-10-yellow.png"
+#       price_delta: 0
+#       available: true
+#
+#   connectivity:
+#     - id: wifi
+#       label: Wi-Fi
+#       price_delta: 0
+#       available: true
+#
+#     - id: cellular
+#       label: Wi-Fi + Cellular
+#       price_delta: 0
+#       available: true
+#
+#   storage:
+#     - id: 64
+#       label: 64GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 256
+#       label: 256GB
+#       price_delta: 0
+#       available: true
+#
+#
+# # =========================
+# # iPad mini (6th gen)
+# # =========================
+# - slug: ipad-mini-6
+#   model: iPad mini (6th gen)
+#   base_price: 0
+#   image: "https://your-cloudinary/ipad-mini.png"
+#   link: "/checkout"
+#
+#   settings:
+#     enable_colors: true
+#     enable_storage: true
+#     enable_connectivity: true
+#
+#   colors:
+#     - id: space-gray
+#       name: Space Gray
+#       image: "https://your-cloudinary/ipad-mini-space-gray.png"
+#       price_delta: 0
+#       available: true
+#
+#     - id: starlight
+#       name: Starlight
+#       image: "https://your-cloudinary/ipad-mini-starlight.png"
+#       price_delta: 0
+#       available: true
+#
+#     - id: purple
+#       name: Purple
+#       image: "https://your-cloudinary/ipad-mini-purple.png"
+#       price_delta: 0
+#       available: true
+#
+#   connectivity:
+#     - id: wifi
+#       label: Wi-Fi
+#       price_delta: 0
+#       available: true
+#
+#     - id: cellular
+#       label: Wi-Fi + Cellular
+#       price_delta: 0
+#       available: true
+#
+#   storage:
+#     - id: 64
+#       label: 64GB
+#       price_delta: 0
+#       available: true
+#
+#     - id: 256
+#       label: 256GB
+#       price_delta: 0
+#       available: true

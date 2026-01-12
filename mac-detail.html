@@ -22,14 +22,15 @@ permalink: /mac-detail/
         <span id="pdpPrice" class="pdp__price"></span>
       </div>
 
-      <!-- Finish -->
-      <div id="finishBlock" class="pdp__block reveal" hidden>
+      <!-- Color -->
+      <div id="colorBlock" class="pdp__block reveal" hidden>
         <div class="pdp__blockHead">
-          <h2 class="pdp__blockTitle">Finish</h2>
-          <span id="pdpFinishName" class="pdp__muted"></span>
+          <h2 class="pdp__blockTitle">Color</h2>
+          <span id="pdpColorName" class="pdp__muted"></span>
         </div>
-        <div id="finishOptions" class="pdp__options"></div>
+        <div id="colorOptions" class="pdp__options"></div>
       </div>
+
 
       <!-- RAM -->
       <div id="ramBlock" class="pdp__block reveal" hidden>
@@ -66,7 +67,6 @@ permalink: /mac-detail/
   });
 
   const $ = (id) => document.getElementById(id);
-
   const slug = (new URLSearchParams(location.search).get("item") || "").trim();
 
   const macs = window.IDEAL_MACS || [];
@@ -85,26 +85,26 @@ permalink: /mac-detail/
   }
 
   const settings = product.settings || {};
-  const finish  = Array.isArray(product.finish) ? product.finish : [];
-  const ram     = Array.isArray(product.ram) ? product.ram : [];
-  const storage = Array.isArray(product.storage) ? product.storage : [];
+  const colors   = Array.isArray(product.colors) ? product.colors : [];
+  const ram      = Array.isArray(product.ram) ? product.ram : [];
+  const storage  = Array.isArray(product.storage) ? product.storage : [];
 
   const firstAvail = (arr) => arr.find(x => x && x.available !== false) || arr[0] || null;
 
-  let selFinish  = firstAvail(finish);
-  let selRam     = firstAvail(ram);
-  let selStorage = firstAvail(storage);
+  let selectedColor   = firstAvail(colors);
+  let selectedRam     = firstAvail(ram);
+  let selectedStorage = firstAvail(storage);
 
   // ===== Gallery (manual dots) =====
   let gallery = [];
   let galleryIndex = 0;
 
   const getGallery = () => {
-    if (selFinish && Array.isArray(selFinish.images) && selFinish.images.length) {
-      return selFinish.images;
+    if (selectedColor && Array.isArray(selectedColor.images) && selectedColor.images.length) {
+      return selectedColor.images;
     }
-    if (selFinish && typeof selFinish.image === "string" && selFinish.image) {
-      return [selFinish.image];
+    if (selectedColor && typeof selectedColor.image === "string" && selectedColor.image) {
+      return [selectedColor.image];
     }
     if (typeof product.image === "string" && product.image) {
       return [product.image];
@@ -114,7 +114,6 @@ permalink: /mac-detail/
 
   const setGalleryIndex = (i) => {
     if (!gallery.length || !imageEl) return;
-
     galleryIndex = (i + gallery.length) % gallery.length;
     imageEl.src = gallery[galleryIndex] || "";
     imageEl.alt = product.model || "Mac";
@@ -128,7 +127,6 @@ permalink: /mac-detail/
 
   const renderDots = () => {
     if (!dotsEl) return;
-
     dotsEl.innerHTML = "";
     if (gallery.length <= 1) return;
 
@@ -142,16 +140,13 @@ permalink: /mac-detail/
     });
   };
 
-  // ===== Per-finish storage availability =====
-  // Put this in YAML per finish if needed:
-  // storage_available: [256, 512, "1tb"]
-  const applyStorageAvailabilityForFinish = () => {
+  // ===== Per-color storage availability =====
+  const applyStorageAvailabilityForColor = () => {
     const root = $("storageOptions");
-    if (!root || !selFinish) return;
+    if (!root || !selectedColor || !storage.length) return;
 
-    const allowed = selFinish.storage_available;
+    const allowed = selectedColor.storage_available;
 
-    // No restriction -> enable all globally available
     if (!Array.isArray(allowed) || allowed.length === 0) {
       [...root.children].forEach((btn, i) => {
         const opt = storage[i];
@@ -162,7 +157,6 @@ permalink: /mac-detail/
       return;
     }
 
-    // Restriction -> allowed AND globally available
     [...root.children].forEach((btn, i) => {
       const opt = storage[i];
       if (!opt) return;
@@ -175,104 +169,102 @@ permalink: /mac-detail/
       btn.classList.toggle("is-disabled", !ok);
     });
 
-    // If selected storage not allowed -> pick first allowed
     const selectedOk =
-      allowed.includes(selStorage?.id) ||
-      allowed.includes(String(selStorage?.id));
+      allowed.includes(selectedStorage?.id) ||
+      allowed.includes(String(selectedStorage?.id));
 
     if (!selectedOk) {
       const next = storage.find(s =>
         (allowed.includes(s.id) || allowed.includes(String(s.id))) && s.available !== false
       );
-      if (next) selStorage = next;
+      if (next) selectedStorage = next;
     }
   };
 
   // ===== Price =====
-  const compute = () => {
+  const computePrice = () => {
     const base = Number(product.base_price || 0);
-    const f = Number(selFinish?.price_delta || 0);
-    const r = Number(selRam?.price_delta || 0);
-    const s = Number(selStorage?.price_delta || 0);
-    return base + f + r + s;
+    const c = Number(selectedColor?.price_delta || 0);
+    const r = Number(selectedRam?.price_delta || 0);
+    const s = Number(selectedStorage?.price_delta || 0);
+    return base + c + r + s;
   };
 
-  // ===== Helpers =====
-  const setSelectedClass = (root, list, selected) => {
-    if (!root) return;
-    [...root.children].forEach((el, i) => {
-      el.classList.toggle("is-selected", list[i] === selected);
-    });
-  };
-
-  const renderOptions = (root, list, labelFn, onPick) => {
-    if (!root) return;
-    root.innerHTML = "";
-
-    list.forEach(opt => {
-      const b = document.createElement("button");
-      b.type = "button";
-      b.className = "pdp__opt";
-      b.textContent = labelFn(opt);
-
-      if (opt?.available === false) {
-        b.classList.add("is-disabled");
-        b.disabled = true;
-      }
-
-      b.addEventListener("click", () => onPick(opt));
-      root.appendChild(b);
-    });
-  };
-
-  // ===== UI update =====
-  const update = () => {
+  // ===== UI =====
+  const updateUI = () => {
     if (titleEl) titleEl.textContent = product.model || "Mac";
-    if (priceEl) priceEl.textContent = fmt.format(compute());
+    if (priceEl) priceEl.textContent = fmt.format(computePrice());
 
-    if ($("pdpFinishName")) $("pdpFinishName").textContent = selFinish?.name || "";
-    if ($("pdpRamName")) $("pdpRamName").textContent = selRam?.label || "";
-    if ($("pdpStorageName")) $("pdpStorageName").textContent = selStorage?.label || "";
+    if ($("pdpColorName")) $("pdpColorName").textContent = selectedColor?.name || "";
+    if ($("pdpRamName")) $("pdpRamName").textContent = selectedRam?.label || "";
+    if ($("pdpStorageName")) $("pdpStorageName").textContent = selectedStorage?.label || "";
 
-    // Refresh gallery for selected finish
+    // gallery refresh per color
     gallery = getGallery();
     galleryIndex = 0;
     renderDots();
     setGalleryIndex(0);
 
-    // Checkout URL with selection
+    // checkout link
     if (buyEl) {
       const q = new URLSearchParams();
       q.set("item", product.slug);
-      if (selFinish?.id) q.set("finish", selFinish.id);
-      if (selRam?.id) q.set("ram", selRam.id);
-      if (selStorage?.id) q.set("storage", selStorage.id);
+      if (selectedColor?.id) q.set("color", selectedColor.id);
+      if (selectedRam?.id) q.set("ram", selectedRam.id);
+      if (selectedStorage?.id) q.set("storage", selectedStorage.id);
       buyEl.href = "{{ '/checkout' | relative_url }}" + "?" + q.toString();
     }
   };
 
-  // ===== Blocks =====
-  const showFinish  = settings.enable_finish !== false && finish.length;
+  // ===== Options UI =====
+  const renderOptions = (root, options, labelFn, onPick) => {
+    if (!root) return;
+    root.innerHTML = "";
+
+    options.forEach(opt => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "pdp__opt";
+      btn.textContent = labelFn(opt);
+
+      if (opt?.available === false) {
+        btn.classList.add("is-disabled");
+        btn.disabled = true;
+      }
+
+      btn.addEventListener("click", () => onPick(opt));
+      root.appendChild(btn);
+    });
+  };
+
+  const setSelectedClass = (root, options, selected) => {
+    if (!root) return;
+    [...root.children].forEach((el, i) => {
+      el.classList.toggle("is-selected", options[i] === selected);
+    });
+  };
+
+  // Blocks visibility
+  const showColors  = settings.enable_colors !== false && colors.length;
   const showRam     = settings.enable_ram !== false && ram.length;
   const showStorage = settings.enable_storage !== false && storage.length;
 
-  if (showFinish) {
-    const block = $("finishBlock");
-    const root  = $("finishOptions");
+  if (showColors) {
+    const block = $("colorBlock");
+    const root  = $("colorOptions");
     if (block) block.hidden = false;
 
-    renderOptions(root, finish, x => x.name, (x) => {
-      selFinish = x;
-      setSelectedClass(root, finish, x);
+    renderOptions(root, colors, c => c.name, (c) => {
+      selectedColor = c;
+      setSelectedClass(root, colors, c);
 
-      // update storage rules when finish changes
-      applyStorageAvailabilityForFinish();
-      setSelectedClass($("storageOptions"), storage, selStorage);
+      applyStorageAvailabilityForColor();
+      setSelectedClass($("storageOptions"), storage, selectedStorage);
 
-      update();
+      updateUI();
     });
 
-    setSelectedClass(root, finish, selFinish);
+    setSelectedClass(root, colors, selectedColor);
   }
 
   if (showRam) {
@@ -280,13 +272,13 @@ permalink: /mac-detail/
     const root  = $("ramOptions");
     if (block) block.hidden = false;
 
-    renderOptions(root, ram, x => x.label, (x) => {
-      selRam = x;
-      setSelectedClass(root, ram, x);
-      update();
+    renderOptions(root, ram, r => r.label, (r) => {
+      selectedRam = r;
+      setSelectedClass(root, ram, r);
+      updateUI();
     });
 
-    setSelectedClass(root, ram, selRam);
+    setSelectedClass(root, ram, selectedRam);
   }
 
   if (showStorage) {
@@ -294,18 +286,17 @@ permalink: /mac-detail/
     const root  = $("storageOptions");
     if (block) block.hidden = false;
 
-    renderOptions(root, storage, x => x.label, (x) => {
-      selStorage = x;
-      setSelectedClass(root, storage, x);
-      update();
+    renderOptions(root, storage, s => s.label, (s) => {
+      selectedStorage = s;
+      setSelectedClass(root, storage, s);
+      updateUI();
     });
 
-    setSelectedClass(root, storage, selStorage);
+    setSelectedClass(root, storage, selectedStorage);
   }
 
-  // Initial storage restriction + first render
-  applyStorageAvailabilityForFinish();
-  setSelectedClass($("storageOptions"), storage, selStorage);
-  update();
+  applyStorageAvailabilityForColor();
+  setSelectedClass($("storageOptions"), storage, selectedStorage);
+  updateUI();
 })();
 </script>
